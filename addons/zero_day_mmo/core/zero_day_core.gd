@@ -7,11 +7,17 @@ signal connection_state_changed(state: int)
 signal notification_received(type: String, title: String, description: String)
 signal level_up(new_level: int, is_breakthrough: bool)
 signal command_executed(command: String, success: bool)
+signal player_moved(new_ip: String, old_ip: String)
+signal node_claimed(node_ip: String, owner: String)
+signal combat_occurred(node_ip: String, result: String)
 
 var current_player: ZeroDayData.PlayerData = null
 var game_state: ZeroDayData.GameState = ZeroDayData.GameState.DISCONNECTED
 var settings: ConfigFile = ConfigFile.new()
 var settings_path: String = "user://settings.cfg"
+
+var world_nodes: Dictionary = {}
+var known_routers: Array[String] = ["127.0.1.1"]
 
 func _ready():
 	process_mode = PROCESS_MODE_ALWAYS

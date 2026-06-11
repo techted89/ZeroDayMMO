@@ -15,6 +15,7 @@ extends Control
 @export var commands_text: RichTextLabel
 @export var nodes_text: RichTextLabel
 @export var active_task_count_text: RichTextLabel
+@export var current_ip_text: RichTextLabel
 @export var bar_anim_duration: float = 0.3
 
 var _last_data: Dictionary = {}
@@ -54,6 +55,7 @@ func _set_instant(p: Dictionary):
 	if commands_text: commands_text.text = str(p.get("unlocked_commands", []).size())
 	if nodes_text: nodes_text.text = str(p.get("completed_tasks_count", 0))
 	if active_task_count_text: active_task_count_text.text = "Tasks: %d" % p.get("active_tasks", []).size()
+	if current_ip_text: current_ip_text.text = p.get("current_ip", "127.0.0.1")
 
 func _animate_hud(p: Dictionary):
 	if player_name_text: player_name_text.text = p.get("username", "")
@@ -79,6 +81,7 @@ func _animate_hud(p: Dictionary):
 	if bandwidth_text: bandwidth_text.text = "%d/%d Mbps" % [p.get("bandwidth", 0), p.get("max_bandwidth", 0)]
 	if credits_text: credits_text.text = "$%d" % p.get("credits", 0)
 	if reputation_text: reputation_text.text = str(p.get("reputation", 0))
+	if current_ip_text: current_ip_text.text = p.get("current_ip", "127.0.0.1")
 
 func show_feedback_text(text: String, color: Color, duration: float = 1.5):
 	var label = Label.new()

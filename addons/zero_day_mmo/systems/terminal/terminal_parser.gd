@@ -117,6 +117,15 @@ func _initialize_commands() -> void:
 		_command("inject", "Inject malicious code", 2, 10, "inject [target] [payload]", "Inject code into a target.", "#FF6600"),
 		_command("equipment", "View equipped items", 1, 0, "equipment", "Open the Inventory Equipment panel.", "#00FF00"),
 		_command("reconnect", "Reconnect to the server", 1, 0, "reconnect", "Re-establish connection.", "#FFFF00"),
+		_command("travel", "Travel to a target IP", 3, 10, "travel <ip>", "Move to a different IP. Bandwidth determines max range.", "#00FFFF"),
+		_command("attack", "Attack hostile node at an IP", 5, 20, "attack <ip>", "Engage enemies at the target IP.", "#FF4444"),
+		_command("build_base", "Place your base at current IP", 5, 30, "build_base", "Build a base. Only outside localhost (127.x.x.x).", "#00FF00"),
+		_command("claim", "Claim an unowned IP node", 3, 10, "claim <ip>", "Claim nodes for yourself or faction.", "#FFFF00"),
+		_command("tutorial", "Start or check tutorial progress", 1, 0, "tutorial [start|skip|status]", "Begin guided tutorial walkthrough.", "#00FF00"),
+		_command("flee", "Flee from active combat", 5, 0, "flee", "Escape combat at cost of resources.", "#FF4444"),
+		_command("scan_ip", "Scan an IP node", 3, 5, "scan_ip <ip>", "Scan the target IP for nodes and threats.", "#00FFFF"),
+		_command("router", "Manage network routers", 1, 0, "router [list|discover]", "List or discover network routers.", "#00FFFF"),
+		_command("base", "View base status", 1, 0, "base", "Check your established base details.", "#00FF00"),
 	]
 
 func _command(n, sd, rl, cc, u, ld, c) -> CommandDefinition:
@@ -184,8 +193,9 @@ func get_help_text(command_name: String = "") -> String:
 			"UTILITY": ["help", "clear", "status", "profile", "log", "analyze", "upgrade", "shop", "auction", "equip", "unequip", "career"],
 			"SOCIAL": ["tasks", "faction", "party", "friends", "mail", "notifications"],
 			"SYSTEM": ["network", "story", "research", "kmap", "nexus", "scripts", "inventory", "achievements", "challenges", "events", "skills", "evolutions", "daily", "chain", "map", "hideout", "quests", "equipment"],
+			"WORLD": ["travel", "scan_ip", "attack", "claim", "build_base", "base", "router", "flee", "tutorial"],
 			"COMBAT": ["arena", "defense", "ddos", "boss", "arrest", "bounty"],
-			"ADVANCED": ["prestige", "exit", "reconnect"]
+			"ADVANCED": ["prestige", "exit", "reconnect", "tutorial"]
 		}
 
 		for cat_name in categories:

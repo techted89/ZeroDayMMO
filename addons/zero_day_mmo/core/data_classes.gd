@@ -46,6 +46,7 @@ class PlayerData:
 	var justice_points: int
 	var bounty_price: int
 	var current_zone_id: String
+	var current_ip: String
 	var breakthrough_multiplier: float
 	var login_streak: int
 	var total_logins: int
@@ -86,6 +87,7 @@ class PlayerData:
 		justice_points = data.get("justice_points", 0)
 		bounty_price = data.get("bounty_price", 0)
 		current_zone_id = data.get("current_zone_id", "")
+		current_ip = data.get("current_ip", "127.0.0.1")
 		breakthrough_multiplier = data.get("breakthrough_multiplier", 1.0)
 		login_streak = data.get("login_streak", 0)
 		total_logins = data.get("total_logins", 0)

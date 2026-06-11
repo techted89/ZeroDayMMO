@@ -1,9 +1,0 @@
-{
-  "version": 1,
-  "taskId": "1.1",
-  "declaredAt": 1781022902178,
-  "expiresAt": 1781109302178,
-  "files": [
-    "zeroday-client-godot/project.godot"
-  ]
-}
