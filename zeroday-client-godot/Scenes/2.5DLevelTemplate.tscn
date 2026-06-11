@@ -1,0 +1,92 @@
+[gd_scene load_steps=10 format=3 uid="uid://25d_template0001"]
+
+[ext_resource type="Script" path="res://addons/node25d/node25d/node_25d.gd" id="1_node25d"]
+[ext_resource type="Script" path="res://addons/node25d/node25d/y_sort_25d.gd" id="2_ySort25D"]
+[ext_resource type="Script" path="res://addons/node25d/node25d/shadow_math_25d.gd" id="3_shadowMath25D"]
+
+[node name="Level25D" type="Node2D" unique_id=123456789]
+script = ExtResource("1_node25d")
+
+[node name="Player25D" type="Node2D" parent="Level25D" unique_id=987654321]
+script = ExtResource("1_node25d")
+
+[node name="Platform0" type="Node2D" parent="Level25D" unique_id=112233444]
+
+[node name="PlatformSprite0" type="Sprite2D" parent="Platform0" unique_id=443322111]
+
+[node name="YSort25D" type="Node" parent="Level25D" unique_id=556677888]
+script = ExtResource("2_ySort25D")
+
+[node name="ShadowMath25D" type="CharacterBody3D" parent="Level25D" unique_id=887766555]
+script = ExtResource("3_shadowMath25D")
+
+[node name="Viewport25D" type="ColorRect" parent="Level25D" unique_id=778899000]
+script = ExtResource("res://addons/node25d/main_screen/viewport_25d.gd")
+
+[node name="MainScreen25D" type="VBoxContainer" parent="Level25D" unique_id=111222333]
+script = ExtResource("res://addons/node25d/main_screen/main_screen_25d.tscn")
+
+[node name="TopBar" type="HBoxContainer" parent="MainScreen25D" unique_id=334455666"]
+
+[node name="ViewModeButtons" type="HBoxContainer" parent="TopBar" unique_id=667788999"]
+
+[node name="45Degree" type="CheckBox" parent="ViewModeButtons" unique_id=990011222"]
+button_group = ExtResource("res://addons/node25d/view_mode_button_group.tres")
+text = "45 Degree"
+
+[node name="Isometric" type="CheckBox" parent="ViewModeButtons" unique_id=223344555"]
+button_group = ExtResource("res://addons/node25d/view_mode_button_group.tres")
+text = "Isometric"
+
+[node name="TopDown" type="CheckBox" parent="ViewModeButtons" unique_id=556677888"]
+button_group = ExtResource("res://addons/node25d/view_mode_button_group.tres")
+text = "Top Down"
+
+[node name="FrontSide" type="CheckBox" parent="ViewModeButtons" unique_id=889900111"]
+button_group = ExtResource("res://addons/node25d/view_mode_button_group.tres")
+text = "Front Side"
+
+[node name="ObliqueY" type="CheckBox" parent="ViewModeButtons" unique_id=112233444"]
+button_group = ExtResource("res://addons/node25d/view_mode_button_group.tres")
+text = "Oblique Y"
+
+[node name="ObliqueZ" type="CheckBox" parent="ViewModeButtons" unique_id=445566777"]
+button_group = ExtResource("res://addons/node25d/view_mode_button_group.tres")
+text = "Oblique Z"
+
+[node name="Zoom" type="HBoxContainer" parent="TopBar" unique_id=778899000"]
+
+[node name="ZoomOut" type="Button" parent="Zoom" unique_id=001122333"]
+text = "-"
+
+[node name="ZoomPercent" type="Label" parent="Zoom" unique_id=334455666"]
+text = "100%"
+
+[node name="ZoomReset" type="Button" parent="ZoomPercent" unique_id=667788999"]
+modulate = Color(1, 1, 1, 0)
+
+[node name="ZoomIn" type="Button" parent="Zoom" unique_id=990011222"]
+text = "+"
+
+[node name="Viewport25D" type="ColorRect" parent="Level25D" unique_id=123456789"]
+script = ExtResource("res://addons/node25d/main_screen/viewport_25d.gd")
+
+[sub_resource type="ViewportTexture" id="1"]
+viewport_path = NodePath("Viewport25D/Viewport2D")
+
+[sub_resource type="ViewportTexture" id="2"]
+viewport_path = NodePath("Viewport25D/ViewportOverlay")
+
+[sub_resource type="ButtonGroup" id="1"]
+
+[sub_resource type="ViewportTexture" id="1"]
+viewport_path = NodePath("Viewport25D/Viewport2D")
+
+[sub_resource type="ViewportTexture" id="2"]
+viewport_path = NodePath("Viewport25D/ViewportOverlay")
+
+[sub_resource type="ButtonGroup" id="2"]
+
+[connection signal="pressed" from="TopBar/Zoom/ZoomOut" to="Viewport25D" method="_on_ZoomOut_pressed"]
+[connection signal="pressed" from="TopBar/Zoom/ZoomPercent/ZoomReset" to="Viewport25D" method="_on_ZoomReset_pressed"]
+[connection signal="pressed" from="TopBar/Zoom/ZoomIn" to="Viewport25D" method="_on_ZoomIn_pressed"]

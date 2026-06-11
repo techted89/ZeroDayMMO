@@ -1,0 +1,46 @@
+[Unit]
+Description=ZeroDayMMO Game Server
+Documentation=https://github.com/zerodaymmo
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=zeroday
+Group=zeroday
+WorkingDirectory=/opt/zeroday
+Environment=ZERODAY_PORT=8080
+Environment=ZERODAY_DATA_DIR=/opt/zeroday/data
+Environment=ZERODAY_SERVER_NAME=ZeroDayMMO
+Environment=JAVA_OPTS=-Xms128m -Xmx512m -XX:+UseG1GC -XX:MaxGCPauseMillis=100
+ExecStart=/usr/bin/java $JAVA_OPTS -Dlogback.configurationFile=/opt/zeroday/logback.xml -jar /opt/zeroday/zeroday-server.jar
+ExecStop=/bin/kill -SIGTERM $MAINPID
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=30
+KillMode=mixed
+KillSignal=SIGTERM
+SuccessExitStatus=143
+
+# Hardening
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/zeroday/data /opt/zeroday/logs
+LimitNOFILE=65536
+LimitNPROC=4096
+
+# Resource limits
+MemoryMax=768M
+MemoryHigh=512M
+CPUQuota=200%
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=zeroday-server
+
+[Install]
+WantedBy=multi-user.target

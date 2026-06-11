@@ -1,0 +1,168 @@
+[gd_scene load_steps=18 format=3 uid="uid://ipv4world_test25d001"]
+
+[ext_resource type="Script" path="res://Scripts/World/IPv4WorldManager.cs" id="1_world"]
+[ext_resource type="Script" path="res://Scripts/World/FactionControlSystem.cs" id="2_faction"]
+[ext_resource type="Script" path="res://Scripts/World/ThreatSpawnSystem.cs" id="3_threat"]
+[ext_resource type="Script" path="res://Scripts/World/BaseBuildingSystem.cs" id="4_building"]
+[ext_resource type="Script" path="res://Scripts/World/IPv4WorldMapUI.cs" id="5_ui"]
+[ext_resource type="Script" path="res://Scripts/World/IPv4WorldTestController.cs" id="6_controller"]
+
+[node name="IPv4World25D" type="Node25D" unique_id=123456789]
+script = ExtResource("6_controller")
+
+[node name="IPv4World2D" type="Node2D" parent="IPv4World25D" unique_id=987654321]
+
+[node name="IPv4World3D" type="Node" parent="IPv4World25D" unique_id=556677888]]
+script = ExtResource("6_controller")
+
+[node name="IPv4WorldManager" type="Node" parent="IPv4World2D" unique_id=112233444]
+script = ExtResource("1_world")
+
+[node name="FactionControlSystem" type="Node" parent="IPv4World2D" unique_id=223344555]
+WorldManagerPath = NodePath("./IPv4WorldManager")
+script = ExtResource("2_faction")
+
+[node name="ThreatSpawnSystem" type="Node" parent="IPv4World2D" unique_id=334455666]
+WorldManagerPath = NodePath("./IPv4WorldManager")
+FactionControlPath = NodePath("./FactionControlSystem")
+script = ExtResource("3_threat")
+
+[node name="BaseBuildingSystem" type="Node" parent="IPv4World2D" unique_id=445566777]
+WorldManagerPath = NodePath("./IPv4WorldManager")
+script = ExtResource("4_building")
+
+[node name="WorldMapUI" type="Control" parent="IPv4World2D" unique_id=556677888]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+WorldManagerPath = NodePath("./IPv4WorldManager")
+FactionControlPath = NodePath("./FactionControlSystem")
+ThreatSpawnPath = NodePath("./ThreatSpawnSystem")
+BaseBuildingPath = NodePath("./BaseBuildingSystem")
+script = ExtResource("5_ui")
+
+[node name="InfoPanel" type="PanelContainer" parent="IPv4World2D" unique_id=667788999]
+
+[node name="StatsPanel" type="PanelContainer" parent="IPv4World2D" unique_id=778899000]]
+script = ExtResource("1_world")
+
+[node name="FactionControlSystem" type="Node" parent="."]
+WorldManagerPath = NodePath("../IPv4WorldManager")
+script = ExtResource("2_faction")
+
+[node name="ThreatSpawnSystem" type="Node" parent="."]
+WorldManagerPath = NodePath("../IPv4WorldManager")
+FactionControlPath = NodePath("../FactionControlSystem")
+script = ExtResource("3_threat")
+
+[node name="BaseBuildingSystem" type="Node" parent="."]
+WorldManagerPath = NodePath("../IPv4WorldManager")
+script = ExtResource("4_building")
+
+[node name="WorldMapUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+WorldManagerPath = NodePath("../IPv4WorldManager")
+FactionControlPath = NodePath("../FactionControlSystem")
+ThreatSpawnPath = NodePath("../ThreatSpawnSystem")
+BaseBuildingPath = NodePath("../BaseBuildingSystem")
+script = ExtResource("5_ui")
+
+[node name="InfoPanel" type="PanelContainer" parent="."]
+anchors_preset = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 350.0
+offset_bottom = 300.0
+
+[node name="VBox" type="VBoxContainer" parent="InfoPanel"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="InfoPanel/VBox"]
+layout_mode = 2
+text = "IPv4 WORLD SYSTEM"
+
+[node name="IPLabel" type="Label" parent="InfoPanel/VBox"]
+layout_mode = 2
+text = "Selected: None"
+
+[node name="OwnerLabel" type="Label" parent="InfoPanel/VBox"]
+layout_mode = 2
+text = "Owner: Unowned"
+
+[node name="BiomeLabel" type="Label" parent="InfoPanel/VBox"]
+layout_mode = 2
+text = "Biome: Unknown"
+
+[node name="ThreatLabel" type="Label" parent="InfoPanel/VBox"]
+layout_mode = 2
+text = "Threats: 0"
+
+[node name="StructuresLabel" type="Label" parent="InfoPanel/VBox"]
+layout_mode = 2
+text = "Structures: 0"
+
+[node name="Spacer" type="Control" parent="InfoPanel/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 10)
+
+[node name="Instructions" type="Label" parent="InfoPanel/VBox"]
+layout_mode = 2
+text = "CONTROLS:
+Arrow Keys: Pan camera
+Page Up/Down: Zoom
+Left Click: Select tile
+Enter: Claim tile
+B: Build structure
+T: Attack threat"
+
+[node name="StatsPanel" type="PanelContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -300.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = 200.0
+
+[node name="VBox" type="VBoxContainer" parent="StatsPanel"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="StatsPanel/VBox"]
+layout_mode = 2
+text = "WORLD STATS"
+
+[node name="TotalTiles" type="Label" parent="StatsPanel/VBox"]
+layout_mode = 2
+text = "Total Tiles: 0"
+
+[node name="OwnedTiles" type="Label" parent="StatsPanel/VBox"]
+layout_mode = 2
+text = "Owned: 0"
+
+[node name="ActiveThreats" type="Label" parent="StatsPanel/VBox"]
+layout_mode = 2
+text = "Active Threats: 0"
+
+[node name="Factions" type="Label" parent="StatsPanel/VBox"]
+layout_mode = 2
+text = "Factions: 0"
+
+[node name="Spacer" type="Control" parent="StatsPanel/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 10)
+
+[node name="FactionList" type="Label" parent="StatsPanel/VBox"]
+layout_mode = 2
+text = "FACTIONS:
+- Anonymous
+- CorpSec
+- DarkNet
+- WhiteHat"

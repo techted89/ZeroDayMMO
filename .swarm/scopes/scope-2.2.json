@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "taskId": "2.2",
+  "declaredAt": 1781036367884,
+  "expiresAt": 1781122767884,
+  "files": [
+    "zeroday-client-godot/Scripts/UI/HUDController.cs",
+    "zeroday-client-godot/Scripts/UI/NotificationCenter.cs",
+    "zeroday-client-godot/Scripts/UI/HUDResourceWarning.cs",
+    "zeroday-client-godot/Scripts/Managers/UIManager.cs",
+    "zeroday-client-godot/Scripts/Terminal/TerminalCore.cs",
+    "zeroday-client-godot/Scripts/Managers/GameManager.cs",
+    "zeroday-client-godot/Scripts/Effects/UIAnimator.cs"
+  ]
+}

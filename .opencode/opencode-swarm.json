@@ -1,0 +1,12 @@
+{
+  "full_auto": {
+    "enabled": true,
+    "mode": "on"
+  },
+  "oversight": {
+    "enabled": false
+  },
+  "council": {
+    "enabled": false
+  }
+}

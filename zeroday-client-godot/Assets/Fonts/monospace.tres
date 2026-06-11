@@ -1,0 +1,22 @@
+[gd_resource type="FontFile" format=3 uid="uid://monospace_font_001"]
+
+[resource]
+font_name = "Monospace"
+antialiasing = 1
+hinting = 1
+subpixel_positioning = 1
+oversampling = 0.0
+fallbacks = []
+allow_system_fallback = true
+style_name = "Regular"
+style_flags = 0
+weight = 400
+stretch = 100
+extra_spacing = {
+"top": 0,
+"bottom": 0,
+"character": 0,
+"space": 0
+}
+face_index = 0
+data = null

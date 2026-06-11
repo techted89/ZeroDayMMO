@@ -1,0 +1,45 @@
+services:
+  zeroday-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: zeroday-server:1.0.0
+    container_name: zeroday-server
+    restart: unless-stopped
+    ports:
+      - "${ZERODAY_PORT:-8080}:8080"
+    environment:
+      ZERODAY_PORT: "8080"
+      ZERODAY_SERVER_NAME: "${ZERODAY_SERVER_NAME:-ZeroDayMMO}"
+      ZERODAY_MAX_CONNECTIONS: "${ZERODAY_MAX_CONNECTIONS:-2000}"
+      ZERODAY_MAX_CONNECTIONS_PER_IP: "${ZERODAY_MAX_CONNECTIONS_PER_IP:-8}"
+      ZERODAY_IDLE_TIMEOUT_MS: "${ZERODAY_IDLE_TIMEOUT_MS:-300000}"
+      ZERODAY_SNAPSHOT_INTERVAL_MS: "${ZERODAY_SNAPSHOT_INTERVAL_MS:-60000}"
+      ZERODAY_DATA_DIR: "/opt/zeroday/data"
+      LOG_DIR: "/opt/zeroday/logs"
+      LOG_LEVEL: "${LOG_LEVEL:-INFO}"
+      JAVA_OPTS: "${JAVA_OPTS:--Xms128m -Xmx512m -XX:+UseG1GC}"
+    volumes:
+      - zeroday-data:/opt/zeroday/data
+      - zeroday-logs:/opt/zeroday/logs
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 5s
+      start_period: 20s
+      retries: 3
+    logging:
+      driver: json-file
+      options:
+        max-size: "20m"
+        max-file: "5"
+    deploy:
+      resources:
+        limits:
+          memory: 768M
+        reservations:
+          memory: 256M
+
+volumes:
+  zeroday-data:
+  zeroday-logs:

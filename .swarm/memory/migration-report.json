@@ -1,0 +1,9 @@
+{
+  "migration": "legacy_jsonl_import_complete",
+  "completedAt": "2026-06-09T20:32:52.132Z",
+  "skipped": false,
+  "importedMemories": 0,
+  "importedProposals": 0,
+  "invalidRows": [],
+  "backups": []
+}

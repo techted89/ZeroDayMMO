@@ -1,0 +1,499 @@
+{
+  "templates": [
+    {
+      "name": "character_walk_cycle",
+      "description": "4-directional walk cycle for player characters (front, back, left, right).",
+      "fields": {
+        "spritesheet": true,
+        "rows": 4,
+        "cols": 4,
+        "frameCount": 16,
+        "animationType": "walk",
+        "direction": "front",
+        "factionStyle": "neutral",
+        "effects": "none"
+      },
+      "prompt": {
+        "base": "{faction_style} character, pixel art style, 32x32 pixels per frame, transparent background",
+        "negative": "blurry, smooth, realistic, 3d render, photograph, gradient, anti-aliased, modern, hd, 4k, noise, grain, watermark",
+        "frameDescriptions": [
+          "Frame 1: left foot forward, right foot back, neutral stance",
+          "Frame 2: feet passing, mid-step, slight forward lean",
+          "Frame 3: right foot forward, left foot back, full stride",
+          "Frame 4: right foot planted, left foot lifting, transition to next step"
+        ],
+        "factionStyles": {
+          "syndicate": "cyberpunk hacker, trench coat, neon visor, glowing green accents",
+          "corporate": "futuristic security guard, blue/white armor, sleek helmet, corporate insignia",
+          "rogue": "hooded thief, dark green/black cloak, glowing eyes, stealthy posture",
+          "neutral": "generic adventurer, brown leather armor, neutral colors, no faction insignia"
+        },
+        "effects": {
+          "electric": "electric aura, glowing visor, energy particles",
+          "fire": "flame trails, smoke particles, glowing red accents",
+          "stealth": "smoke particles, flickering transparency, dark aura",
+          "none": ""
+        },
+        "palette": {
+          "syndicate": ["#00FF00", "#003300", "#FFFFFF", "#333333"],
+          "corporate": ["#0000FF", "#FFFFFF", "#555555", "#003366"],
+          "rogue": ["#00FF00", "#003300", "#000000", "#333333"],
+          "neutral": ["#884400", "#552200", "#FFFFFF", "#333333"]
+        }
+      },
+      "output": {
+        "layout": "4x4 grid, 32x32 pixels per frame, 128x128 total spritesheet size",
+        "directions": ["front", "back", "left", "right"]
+      },
+      "edgeCases": [
+        "Transparent backgrounds may cause artifacts. Test with solid color first.",
+        "Frame consistency may vary. Use frameDescriptions for guidance.",
+        "Faction styles may require manual tweaking for pixel art clarity."
+      ]
+    },
+    {
+      "name": "character_run_cycle",
+      "description": "4-directional run cycle for player characters (faster than walk).",
+      "fields": {
+        "spritesheet": true,
+        "rows": 2,
+        "cols": 4,
+        "frameCount": 8,
+        "animationType": "run",
+        "direction": "front",
+        "factionStyle": "neutral",
+        "effects": "none"
+      },
+      "prompt": {
+        "base": "{faction_style} character running, pixel art style, 32x32 pixels per frame, transparent background, dynamic pose",
+        "negative": "blurry, smooth, realistic, 3d render, photograph, gradient, anti-aliased, modern, hd, 4k",
+        "frameDescriptions": [
+          "Frame 1: left foot forward, right foot back, full stride, arms pumping",
+          "Frame 2: feet off ground, mid-air, forward lean, arms extended",
+          "Frame 3: right foot forward, left foot back, landing, arms swinging",
+          "Frame 4: right foot planted, left foot lifting, transition to next stride"
+        ],
+        "factionStyles": {
+          "syndicate": "cyberpunk hacker, trench coat flowing, neon visor, glowing green accents",
+          "corporate": "futuristic security guard, blue/white armor, helmet visor down, corporate insignia",
+          "rogue": "hooded thief, dark cloak billowing, glowing eyes, stealthy posture",
+          "neutral": "generic adventurer, brown leather armor, neutral colors, no faction insignia"
+        },
+        "effects": {
+          "electric": "electric aura, glowing visor, energy particles, motion blur",
+          "fire": "flame trails, smoke particles, glowing red accents, heat distortion",
+          "stealth": "smoke particles, flickering transparency, dark aura, motion blur",
+          "none": ""
+        },
+        "palette": {
+          "syndicate": ["#00FF00", "#003300", "#FFFFFF", "#333333"],
+          "corporate": ["#0000FF", "#FFFFFF", "#555555", "#003366"],
+          "rogue": ["#00FF00", "#003300", "#000000", "#333333"],
+          "neutral": ["#884400", "#552200", "#FFFFFF", "#333333"]
+        }
+      },
+      "output": {
+        "layout": "2x4 grid, 32x32 pixels per frame, 128x64 total spritesheet size",
+        "directions": ["front", "back", "left", "right"]
+      },
+      "edgeCases": [
+        "Run cycles may appear too slow. Adjust frame count or speed in-game.",
+        "Motion blur effects may not render clearly in pixel art. Use particles instead."
+      ]
+    },
+    {
+      "name": "character_idle",
+      "description": "4-directional idle animation for player characters (breathing, subtle movements).",
+      "fields": {
+        "spritesheet": true,
+        "rows": 1,
+        "cols": 4,
+        "frameCount": 4,
+        "animationType": "idle",
+        "direction": "front",
+        "factionStyle": "neutral",
+        "effects": "none"
+      },
+      "prompt": {
+        "base": "{faction_style} character idle, pixel art style, 32x32 pixels per frame, transparent background, subtle breathing animation",
+        "negative": "blurry, smooth, realistic, 3d render, photograph, gradient, anti-aliased, modern, hd, 4k",
+        "frameDescriptions": [
+          "Frame 1: neutral stance, arms relaxed, slight breath in",
+          "Frame 2: peak of breath, chest slightly expanded, arms at sides",
+          "Frame 3: returning to neutral, breath out, subtle shoulder movement",
+          "Frame 4: neutral stance, arms relaxed, ready for action"
+        ],
+        "factionStyles": {
+          "syndicate": "cyberpunk hacker, trench coat, neon visor dimly lit, glowing green accents",
+          "corporate": "futuristic security guard, blue/white armor, helmet visor up, corporate insignia",
+          "rogue": "hooded thief, dark cloak, glowing eyes dim, stealthy posture",
+          "neutral": "generic adventurer, brown leather armor, neutral colors, no faction insignia"
+        },
+        "effects": {
+          "electric": "flickering electric aura, glowing visor, energy particles",
+          "fire": "flickering flame aura, smoke particles, glowing red accents",
+          "stealth": "flickering transparency, dark aura, smoke particles",
+          "none": ""
+        },
+        "palette": {
+          "syndicate": ["#00FF00", "#003300", "#FFFFFF", "#333333"],
+          "corporate": ["#0000FF", "#FFFFFF", "#555555", "#003366"],
+          "rogue": ["#00FF00", "#003300", "#000000", "#333333"],
+          "neutral": ["#884400", "#552200", "#FFFFFF", "#333333"]
+        }
+      },
+      "output": {
+        "layout": "1x4 grid, 32x32 pixels per frame, 128x32 total spritesheet size",
+        "directions": ["front", "back", "left", "right"]
+      },
+      "edgeCases": [
+        "Idle animations may appear static. Use subtle movements (e.g., breathing, eye flickers).",
+        "Faction-specific details may be lost at 32x32 resolution. Test with higher resolutions if needed."
+      ]
+    },
+    {
+      "name": "character_attack",
+      "description": "4-directional attack animation for player characters (melee or ranged).",
+      "fields": {
+        "spritesheet": true,
+        "rows": 1,
+        "cols": 6,
+        "frameCount": 6,
+        "animationType": "attack",
+        "direction": "front",
+        "factionStyle": "neutral",
+        "effects": "none"
+      },
+      "prompt": {
+        "base": "{faction_style} character attacking, pixel art style, 32x32 pixels per frame, transparent background, dynamic pose, weapon visible",
+        "negative": "blurry, smooth, realistic, 3d render, photograph, gradient, anti-aliased, modern, hd, 4k",
+        "frameDescriptions": [
+          "Frame 1: wind-up, weapon pulled back, character leaning back",
+          "Frame 2: strike initiation, weapon moving forward, character leaning forward",
+          "Frame 3: impact frame, weapon fully extended, character at peak forward lean",
+          "Frame 4: recovery, weapon retracting, character returning to neutral",
+          "Frame 5: follow-through, weapon fully retracted, character leaning back slightly",
+          "Frame 6: return to idle, character neutral, ready for next action"
+        ],
+        "factionStyles": {
+          "syndicate": "cyberpunk hacker, trench coat, neon visor, glowing green energy sword",
+          "corporate": "futuristic security guard, blue/white armor, energy rifle, corporate insignia",
+          "rogue": "hooded thief, dark cloak, dagger, glowing eyes, stealthy posture",
+          "neutral": "generic adventurer, brown leather armor, sword, neutral colors, no faction insignia"
+        },
+        "effects": {
+          "electric": "electric aura, weapon glow, energy particles, impact flash",
+          "fire": "flame trails, weapon glow, smoke particles, impact explosion",
+          "stealth": "smoke particles, weapon glow, dark aura, impact distortion",
+          "none": ""
+        },
+        "palette": {
+          "syndicate": ["#00FF00", "#003300", "#FFFFFF", "#333333"],
+          "corporate": ["#0000FF", "#FFFFFF", "#555555", "#003366"],
+          "rogue": ["#00FF00", "#003300", "#000000", "#333333"],
+          "neutral": ["#884400", "#552200", "#FFFFFF", "#333333"]
+        }
+      },
+      "output": {
+        "layout": "1x6 grid, 32x32 pixels per frame, 192x32 total spritesheet size",
+        "directions": ["front", "back", "left", "right"]
+      },
+      "edgeCases": [
+        "Attack animations may appear too slow. Adjust frame timing in-game.",
+        "Weapon visibility may be lost at 32x32 resolution. Use high-contrast colors."
+      ]
+    },
+    {
+      "name": "character_cast_spell",
+      "description": "4-directional spell-casting animation for player characters.",
+      "fields": {
+        "spritesheet": true,
+        "rows": 1,
+        "cols": 8,
+        "frameCount": 8,
+        "animationType": "cast",
+        "direction": "front",
+        "factionStyle": "neutral",
+        "effects": "none"
+      },
+      "prompt": {
+        "base": "{faction_style} character casting a spell, pixel art style, 32x32 pixels per frame, transparent background, dynamic pose, spell effect visible",
+        "negative": "blurry, smooth, realistic, 3d render, photograph, gradient, anti-aliased, modern, hd, 4k",
+        "frameDescriptions": [
+          "Frame 1: wind-up, hands raised, spell energy gathering",
+          "Frame 2: energy buildup, hands glowing, spell particles forming",
+          "Frame 3: peak buildup, hands fully charged, spell ready to release",
+          "Frame 4: release initiation, hands moving forward, spell energy flowing",
+          "Frame 5: spell impact, hands fully extended, energy burst",
+          "Frame 6: follow-through, hands returning, residual energy",
+          "Frame 7: recovery, hands at sides, spell effect dissipating",
+          "Frame 8: return to idle, character neutral, ready for next action"
+        ],
+        "factionStyles": {
+          "syndicate": "cyberpunk hacker, trench coat, neon visor, glowing green spell energy",
+          "corporate": "futuristic security guard, blue/white armor, energy rifle charging, corporate insignia",
+          "rogue": "hooded thief, dark cloak, glowing eyes, dark spell energy",
+          "neutral": "generic adventurer, brown leather armor, neutral spell energy, no faction insignia"
+        },
+        "effects": {
+          "electric": "electric aura, spell glow, energy particles, impact flash",
+          "fire": "flame trails, spell glow, smoke particles, impact explosion",
+          "stealth": "smoke particles, spell glow, dark aura, impact distortion",
+          "none": ""
+        },
+        "palette": {
+          "syndicate": ["#00FF00", "#003300", "#FFFFFF", "#333333"],
+          "corporate": ["#0000FF", "#FFFFFF", "#555555", "#003366"],
+          "rogue": ["#00FF00", "#003300", "#000000", "#333333"],
+          "neutral": ["#884400", "#552200", "#FFFFFF", "#333333"]
+        }
+      },
+      "output": {
+        "layout": "1x8 grid, 32x32 pixels per frame, 256x32 total spritesheet size",
+        "directions": ["front", "back", "left", "right"]
+      },
+      "edgeCases": [
+        "Spell effects may be hard to distinguish at 32x32 resolution. Use high-contrast colors.",
+        "Energy buildup frames may appear static. Use particle effects for dynamism."
+      ]
+    },
+    {
+      "name": "character_die",
+      "description": "One-shot death animation for player characters (no directional variants).",
+      "fields": {
+        "spritesheet": true,
+        "rows": 1,
+        "cols": 6,
+        "frameCount": 6,
+        "animationType": "die",
+        "direction": "front",
+        "factionStyle": "neutral",
+        "effects": "none"
+      },
+      "prompt": {
+        "base": "{faction_style} character dying, pixel art style, 32x32 pixels per frame, transparent background, dramatic pose, collapse animation",
+        "negative": "blurry, smooth, realistic, 3d render, photograph, gradient, anti-aliased, modern, hd, 4k",
+        "frameDescriptions": [
+          "Frame 1: hit reaction, character recoiling, weapon dropping",
+          "Frame 2: collapse initiation, character falling to knees, arms outstretched",
+          "Frame 3: mid-fall, character leaning forward, hair/cloak flowing",
+          "Frame 4: impact, character hitting the ground, dust particles",
+          "Frame 5: death throes, character twitching, eyes fading",
+          "Frame 6: final pose, character motionless, eyes closed"
+        ],
+        "factionStyles": {
+          "syndicate": "cyberpunk hacker, trench coat, neon visor flickering out, glowing green accents fading",
+          "corporate": "futuristic security guard, blue/white armor, helmet visor cracking, corporate insignia fading",
+          "rogue": "hooded thief, dark cloak, glowing eyes dimming, stealthy posture collapsing",
+          "neutral": "generic adventurer, brown leather armor, neutral colors, no faction insignia"
+        },
+        "effects": {
+          "electric": "electric aura fading, energy particles dissipating, impact flash",
+          "fire": "flame trails extinguishing, smoke particles, impact explosion",
+          "stealth": "smoke particles dissipating, dark aura fading, impact distortion",
+          "none": ""
+        },
+        "palette": {
+          "syndicate": ["#00FF00", "#003300", "#FFFFFF", "#333333"],
+          "corporate": ["#0000FF", "#FFFFFF", "#555555", "#003366"],
+          "rogue": ["#00FF00", "#003300", "#000000", "#333333"],
+          "neutral": ["#884400", "#552200", "#FFFFFF", "#333333"]
+        }
+      },
+      "output": {
+        "layout": "1x6 grid, 32x32 pixels per frame, 192x32 total spritesheet size",
+        "directions": ["front"]
+      },
+      "edgeCases": [
+        "Death animations may appear too slow. Adjust frame timing for urgency.",
+        "Transparent backgrounds may cause artifacts. Use solid color for testing."
+      ]
+    },
+    {
+      "name": "spell_impact",
+      "description": "One-shot spell impact animation (e.g., fireball explosion, electric shock).",
+      "fields": {
+        "spritesheet": true,
+        "rows": 1,
+        "cols": 8,
+        "frameCount": 8,
+        "animationType": "spell_impact",
+        "direction": "none",
+        "factionStyle": "none",
+        "effects": "fire"
+      },
+      "prompt": {
+        "base": "{effect_style} spell impact, pixel art style, 64x64 pixels per frame, transparent background, dramatic explosion, particle effects",
+        "negative": "blurry, smooth, realistic, 3d render, photograph, gradient, anti-aliased, modern, hd, 4k, character, background",
+        "frameDescriptions": [
+          "Frame 1: impact initiation, small explosion, particles forming",
+          "Frame 2: explosion growth, particles expanding, shockwave visible",
+          "Frame 3: peak explosion, maximum brightness, particles at full spread",
+          "Frame 4: explosion dissipation, particles fading, smoke forming",
+          "Frame 5: smoke formation, particles turning to smoke, brightness fading",
+          "Frame 6: smoke dissipation, particles thinning, residual glow",
+          "Frame 7: residual smoke, particles almost gone, faint glow",
+          "Frame 8: cleanup, particles fully dissipated, transparent background"
+        ],
+        "effectStyles": {
+          "electric": "electric shock, blue/white energy, lightning bolts, impact flash",
+          "fire": "fireball explosion, red/orange flames, smoke particles, impact explosion",
+          "ice": "ice shatter, blue/white crystals, frost particles, impact freeze",
+          "poison": "toxic cloud, green/purple gas, poison particles, impact splash"
+        },
+        "effects": {
+          "electric": "electric aura, energy particles, impact flash",
+          "fire": "flame trails, smoke particles, impact explosion",
+          "ice": "frost particles, ice shards, impact freeze",
+          "poison": "toxic gas, poison particles, impact splash"
+        },
+        "palette": {
+          "electric": ["#00FFFF", "#0033FF", "#FFFFFF", "#333333"],
+          "fire": ["#FF0000", "#FF8800", "#FFFF00", "#333333"],
+          "ice": ["#00FFFF", "#FFFFFF", "#AADDFF", "#333333"],
+          "poison": ["#00FF00", "#8800FF", "#008800", "#333333"]
+        }
+      },
+      "output": {
+        "layout": "1x8 grid, 64x64 pixels per frame, 512x64 total spritesheet size",
+        "directions": ["none"]
+      },
+      "edgeCases": [
+        "Spell impacts may appear too small at 64x64. Test with higher resolutions if needed.",
+        "Particle effects may be hard to distinguish. Use high-contrast colors."
+      ]
+    },
+    {
+      "name": "weapon_trail",
+      "description": "One-shot weapon trail animation (e.g., sword slash, laser beam).",
+      "fields": {
+        "spritesheet": true,
+        "rows": 1,
+        "cols": 6,
+        "frameCount": 6,
+        "animationType": "weapon_trail",
+        "direction": "none",
+        "factionStyle": "none",
+        "effects": "electric"
+      },
+      "prompt": {
+        "base": "{effect_style} weapon trail, pixel art style, 64x32 pixels per frame, transparent background, dynamic motion blur, glowing effect",
+        "negative": "blurry, smooth, realistic, 3d render, photograph, gradient, anti-aliased, modern, hd, 4k, character, background",
+        "frameDescriptions": [
+          "Frame 1: trail initiation, small glow, particles forming",
+          "Frame 2: trail growth, glow expanding, particles spreading",
+          "Frame 3: peak trail, maximum brightness, particles at full spread",
+          "Frame 4: trail dissipation, glow fading, particles thinning",
+          "Frame 5: residual trail, faint glow, particles almost gone",
+          "Frame 6: cleanup, trail fully dissipated, transparent background"
+        ],
+        "effectStyles": {
+          "electric": "electric sword slash, blue/white energy, lightning bolts, motion blur",
+          "fire": "flaming sword slash, red/orange flames, smoke particles, motion blur",
+          "ice": "frost sword slash, blue/white crystals, frost particles, motion blur",
+          "poison": "toxic dagger slash, green/purple gas, poison particles, motion blur"
+        },
+        "effects": {
+          "electric": "electric aura, energy particles, motion blur",
+          "fire": "flame trails, smoke particles, motion blur",
+          "ice": "frost particles, ice shards, motion blur",
+          "poison": "toxic gas, poison particles, motion blur"
+        },
+        "palette": {
+          "electric": ["#00FFFF", "#0033FF", "#FFFFFF", "#333333"],
+          "fire": ["#FF0000", "#FF8800", "#FFFF00", "#333333"],
+          "ice": ["#00FFFF", "#FFFFFF", "#AADDFF", "#333333"],
+          "poison": ["#00FF00", "#8800FF", "#008800", "#333333"]
+        }
+      },
+      "output": {
+        "layout": "1x6 grid, 64x32 pixels per frame, 384x32 total spritesheet size",
+        "directions": ["none"]
+      },
+      "edgeCases": [
+        "Weapon trails may appear too short. Adjust frame count or trail length.",
+        "Motion blur may not render clearly in pixel art. Use particles instead."
+      ]
+    },
+    {
+      "name": "state_poisoned",
+      "description": "Looping poisoned state animation for player characters (overlay effect).",
+      "fields": {
+        "spritesheet": true,
+        "rows": 1,
+        "cols": 4,
+        "frameCount": 4,
+        "animationType": "state",
+        "direction": "none",
+        "factionStyle": "none",
+        "effects": "poison"
+      },
+      "prompt": {
+        "base": "poisoned state overlay, pixel art style, 32x32 pixels per frame, transparent background, green/purple toxic gas, pulsing effect",
+        "negative": "blurry, smooth, realistic, 3d render, photograph, gradient, anti-aliased, modern, hd, 4k, character, background",
+        "frameDescriptions": [
+          "Frame 1: gas initiation, small cloud forming, low opacity",
+          "Frame 2: gas growth, cloud expanding, medium opacity",
+          "Frame 3: peak gas, cloud at full size, high opacity",
+          "Frame 4: gas dissipation, cloud thinning, low opacity"
+        ],
+        "effects": {
+          "poison": "toxic gas, green/purple particles, pulsing effect"
+        },
+        "palette": {
+          "poison": ["#00FF00", "#8800FF", "#008800", "#333333"]
+        }
+      },
+      "output": {
+        "layout": "1x4 grid, 32x32 pixels per frame, 128x32 total spritesheet size",
+        "directions": ["none"]
+      },
+      "edgeCases": [
+        "Overlay effects may obscure character details. Use low opacity.",
+        "Pulsing effects may appear too fast. Adjust frame timing."
+      ]
+    },
+    {
+      "name": "state_buffed",
+      "description": "Looping buffed state animation for player characters (e.g., strength, speed).",
+      "fields": {
+        "spritesheet": true,
+        "rows": 1,
+        "cols": 4,
+        "frameCount": 4,
+        "animationType": "state",
+        "direction": "none",
+        "factionStyle": "none",
+        "effects": "electric"
+      },
+      "prompt": {
+        "base": "buffed state overlay, pixel art style, 32x32 pixels per frame, transparent background, electric aura, pulsing effect",
+        "negative": "blurry, smooth, realistic, 3d render, photograph, gradient, anti-aliased, modern, hd, 4k, character, background",
+        "frameDescriptions": [
+          "Frame 1: aura initiation, small glow forming, low opacity",
+          "Frame 2: aura growth, glow expanding, medium opacity",
+          "Frame 3: peak aura, glow at full size, high opacity",
+          "Frame 4: aura dissipation, glow thinning, low opacity"
+        ],
+        "effects": {
+          "electric": "electric aura, blue/white energy, pulsing effect",
+          "fire": "flame aura, red/orange glow, pulsing effect",
+          "ice": "frost aura, blue/white glow, pulsing effect"
+        },
+        "palette": {
+          "electric": ["#00FFFF", "#0033FF", "#FFFFFF", "#333333"],
+          "fire": ["#FF0000", "#FF8800", "#FFFF00", "#333333"],
+          "ice": ["#00FFFF", "#FFFFFF", "#AADDFF", "#333333"]
+        }
+      },
+      "output": {
+        "layout": "1x4 grid, 32x32 pixels per frame, 128x32 total spritesheet size",
+        "directions": ["none"]
+      },
+      "edgeCases": [
+        "Overlay effects may obscure character details. Use low opacity.",
+        "Pulsing effects may appear too fast. Adjust frame timing."
+      ]
+    }
+  ]
+}

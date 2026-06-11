@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "taskId": "1.4",
+  "declaredAt": 1781023200584,
+  "expiresAt": 1781109600584,
+  "files": [
+    "zeroday-client-godot/Scripts/Managers/GameManager.cs",
+    "zeroday-client-godot/Scripts/Managers/NetworkManager.cs",
+    "zeroday-client-godot/Scripts/Terminal/TerminalCore.cs"
+  ]
+}

@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://full_integration_test"]
+
+[ext_resource type="PackedScene" path="res://Scenes/Player.tscn" id="1_player"]
+[ext_resource type="Script" path="res://Scripts/World/IPv4WorldManager.cs" id="2_world"]
+[ext_resource type="Script" path="res://Scripts/World/FactionControlSystem.cs" id="3_faction"]
+[ext_resource type="Script" path="res://Scripts/World/ThreatSpawnSystem.cs" id="4_threat"]
+[ext_resource type="Script" path="res://Scripts/Terminal/HackingTerminalSystem.cs" id="5_hacking"]
+[ext_resource type="Script" path="res://Scripts/World/FullIntegrationController.cs" id="6_controller"]
+
+[node name="FullIntegrationTest" type="Node2D"]
+script = ExtResource("6_controller")
+
+[node name="IPv4WorldManager" type="Node" parent="."]
+script = ExtResource("2_world")
+
+[node name="FactionControlSystem" type="Node" parent="."]
+WorldManagerPath = NodePath("../IPv4WorldManager")
+script = ExtResource("3_faction")
+
+[node name="ThreatSpawnSystem" type="Node" parent="."]
+WorldManagerPath = NodePath("../IPv4WorldManager")
+FactionControlPath = NodePath("../FactionControlSystem")
+script = ExtResource("4_threat")
+
+[node name="HackingTerminalSystem" type="Node" parent="."]
+WorldManagerPath = NodePath("../IPv4WorldManager")
+ThreatSpawnPath = NodePath("../ThreatSpawnSystem")
+FactionControlPath = NodePath("../FactionControlSystem")
+script = ExtResource("5_hacking")
+
+[node name="Player" parent="." instance=ExtResource("1_player")]
+position = Vector2(512, 300)

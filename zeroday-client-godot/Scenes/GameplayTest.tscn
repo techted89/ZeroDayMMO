@@ -1,0 +1,63 @@
+[gd_scene load_steps=15 format=3 uid="uid://gameplay_test25d001"]
+
+[ext_resource type="PackedScene" path="res://Scenes/Player.tscn" id="1_player"]
+[ext_resource type="Script" path="res://Scripts/World/GameplayTestController.cs" id="2_controller"]
+
+[node name="Gameplay25D" type="Node25D" unique_id=123456789]
+script = ExtResource("2_controller")
+
+[node name="Gameplay2D" type="Node2D" parent="Gameplay25D" unique_id=987654321]
+
+[node name="Gameplay3D" type="Node" parent="Gameplay25D" unique_id=556677888]]
+script = ExtResource("2_controller")
+
+[node name="Player" parent="Gameplay2D" instance=ExtResource("1_player")]
+position = Vector2(512, 300)
+position = Vector2(512, 300)
+
+[node name="TestUI" type="CanvasLayer" parent="Gameplay2D" unique_id=112233444]]
+
+[node name="InfoPanel" type="PanelContainer" parent="TestUI"]
+anchors_preset = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 300.0
+offset_bottom = 150.0
+
+[node name="VBox" type="VBoxContainer" parent="TestUI/InfoPanel"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="TestUI/InfoPanel/VBox"]
+layout_mode = 2
+text = "ZERODAY MMO - SPRITE TEST"
+
+[node name="Instructions" type="Label" parent="TestUI/InfoPanel/VBox"]
+layout_mode = 2
+text = "Arrow Keys: Move
+Space: Attack
+Tab: Stealth Mode
+R: Respawn"
+
+[node name="StateLabel" type="Label" parent="TestUI/InfoPanel/VBox"]
+layout_mode = 2
+text = "State: Idle"
+
+[node name="StealthLabel" type="Label" parent="TestUI/InfoPanel/VBox"]
+layout_mode = 2
+text = "Stealth: OFF"
+
+[node name="Floor" type="StaticBody2D" parent="Gameplay2D"]]
+position = Vector2(512, 550)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+shape = SubResource("RectangleShape2D_floor")
+
+[node name="FloorSprite" type="ColorRect" parent="Floor"]
+offset_left = -512.0
+offset_top = -10.0
+offset_right = 512.0
+offset_bottom = 10.0
+color = Color(0.2, 0.2, 0.2, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_floor"]
+size = Vector2(1024, 20)

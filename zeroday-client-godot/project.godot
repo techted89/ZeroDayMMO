@@ -1,0 +1,14 @@
+[input]
+# Mobile Input Configuration
+mobile_mode={
+    "events": [
+        Object(InputEventTouch, "resource_local_to_scene": false)
+    ]
+}
+
+# Add a new input action for mobile touch detection
+mobile_touch={
+    "events": [
+        Object(InputEventTouch, "resource_local_to_scene": false)
+    ]
+}
