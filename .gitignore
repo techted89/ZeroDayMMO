@@ -42,6 +42,10 @@ generated_sprites/
 output_stealth/
 
 # Server build artifacts
-zeroday-server/build/
-zeroday-server/.gradle/
-zeroday-server/data/
+zero-server/build/
+zero-server/.gradle/
+zero-server/data/
+
+# Data (player saves, runtime data)
+data/players/
+data/zeroday.db
