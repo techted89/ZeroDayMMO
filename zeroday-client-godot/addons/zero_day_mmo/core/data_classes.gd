@@ -9,34 +9,22 @@ enum GameState {
 }
 
 class PlayerData:
-    var id: String
-    var username: String
-    var level: int
-    var experience: int
-    var experience_to_next: int
-    var cpu: int
-    var max_cpu: int
-    var ram: int
-    var max_ram: int
-    var bandwidth: int
-    var max_bandwidth: int
-    var credits: int
-    var reputation: int
-    var unlocked_commands: Array[String]
-    var inventory: Array[InventoryItemData]
-    var skill_points: int
-    
-    # Inventory methods
-    func equip_item(item_name: String) -> void:
-        print("Equipping item: %s" % item_name)
-        
-    func use_item(item_name: String) -> void:
-        print("Using item: %s" % item_name)
-        
-    # Skill methods
-    func gain_skill_points(points: int) -> void:
-        skill_points += points
-        print("Gained %d skill points" % points)
+	var id: String
+	var username: String
+	var level: int
+	var experience: int
+	var experience_to_next: int
+	var cpu: int
+	var max_cpu: int
+	var ram: int
+	var max_ram: int
+	var bandwidth: int
+	var max_bandwidth: int
+	var credits: int
+	var reputation: int
+	var prestige_level: int
+	var prestige_points: int
+	var unlocked_commands: Array[String]
 	var discovered_nodes_count: int
 	var active_tasks: Array[TaskData]
 	var completed_tasks_count: int
@@ -101,16 +89,12 @@ class PlayerData:
 		breakthrough_multiplier = data.get("breakthrough_multiplier", 1.0)
 		login_streak = data.get("login_streak", 0)
 		total_logins = data.get("total_logins", 0)
-    if data.has("inventory"):
-        for item in data.inventory:
-            inventory.append(InventoryItemData.new(item))
-    
-    # Initialize inventory slots
-    for i in range(9):
-        inventory.append(InventoryItemData.new({"name": "Empty Slot %d" % (i + 1), "quantity": 0}))
-    
-    # Initialize skill points
-    skill_points = 0
+		inventory.clear()
+		if data.has("inventory"):
+			for item in data.inventory:
+				inventory.append(InventoryItemData.new(item))
+		for i in range(9):
+			inventory.append(InventoryItemData.new({"name": "Empty Slot %d" % (i + 1), "quantity": 0}))
 
 	func regenerate_resources():
 		cpu = mini(cpu + 2, max_cpu)
@@ -120,6 +104,16 @@ class PlayerData:
 		if experience_to_next > 0:
 			return float(experience) / float(experience_to_next)
 		return 0.0
+
+	func equip_item(item_name: String) -> void:
+		print("Equipping item: %s" % item_name)
+
+	func use_item(item_name: String) -> void:
+		print("Using item: %s" % item_name)
+
+	func gain_skill_points(points: int) -> void:
+		skill_points += points
+		print("Gained %d skill points" % points)
 
 class TaskData:
 	var task_id: String

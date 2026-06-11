@@ -1,14 +1,172 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="ZeroDayMMO"
+config/description="MMORPG Hacking Simulator — 2.5D terminal-based game client"
+config/version="1.0.0"
+run/main_scene="res://Scenes/main.tscn"
+config/features=PackedStringArray("4.6", "GL Compatibility")
+config/icon="res://icon.svg"
+
+[autoload]
+
+ZeroDayCore="*res://addons/zero_day_mmo/core/zero_day_core.gd"
+NetworkManager="*res://addons/zero_day_mmo/core/network_manager.gd"
+GameManager="*res://addons/zero_day_mmo/core/game_manager.gd"
+UIManager="*res://addons/zero_day_mmo/core/ui_manager.gd"
+ServerConfig="*res://addons/zero_day_mmo/core/server_config.gd"
+TerminalParser="*res://addons/zero_day_mmo/systems/terminal/terminal_parser.gd"
+EnvironmentVariables="*res://addons/zero_day_mmo/core/environment_variables.gd"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=2
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+window/handheld/orientation=0
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/canvas_textures/default_texture_filter=0
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)
+
 [input]
-# Mobile Input Configuration
+
+ui_accept={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194309,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":32,"physical_keycode":0,"key_label":0,"unicode":32,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194310,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+ui_cancel={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194305,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+ui_left={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194319,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":65,"physical_keycode":0,"key_label":0,"unicode":97,"location":0,"echo":false,"script":null)
+]
+}
+ui_right={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194321,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":68,"physical_keycode":0,"key_label":0,"unicode":100,"location":0,"echo":false,"script":null)
+]
+}
+ui_up={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194320,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":87,"physical_keycode":0,"key_label":0,"unicode":119,"location":0,"echo":false,"script":null)
+]
+}
+ui_down={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194322,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":83,"physical_keycode":0,"key_label":0,"unicode":115,"location":0,"echo":false,"script":null)
+]
+}
 mobile_mode={
-    "events": [
-        Object(InputEventTouch, "resource_local_to_scene": false)
-    ]
+"deadzone": 0.5,
+"events": [Object(InputEventTouch,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":0,"canceled":false,"pressed":false,"double_click":false,"script":null)
+]
+}
+mobile_touch={
+"deadzone": 0.5,
+"events": [Object(InputEventTouch,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":0,"canceled":false,"pressed":false,"double_click":false,"script":null)
+]
 }
 
-# Add a new input action for mobile touch detection
-mobile_touch={
-    "events": [
-        Object(InputEventTouch, "resource_local_to_scene": false)
-    ]
-}
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
+[plugin]
+
+enabled=PackedStringArray("zero_day_mmo", "node25d")
+
+; ---------------------------------------------------------------
+; ZeroDayMMO custom project settings
+; These are the single source of truth for all server, admin,
+; and database configuration. Override via env vars at runtime.
+; ---------------------------------------------------------------
+
+[zeroday]
+
+server/url="ws://localhost:8080/game"
+server/url_default="ws://localhost:8080/game"
+server/name="ZeroDayMMO"
+server/name_default="ZeroDayMMO"
+
+server/port=8080
+server/port_default=8080
+server/max_connections=2000
+server/max_connections_default=2000
+server/max_connections_per_ip=8
+server/max_connections_per_ip_default=8
+server/max_players=1000
+server/max_players_default=1000
+server/task_generation_interval=30000
+server/task_generation_interval_default=30000
+server/network_node_count=500
+server/network_node_count_default=500
+
+server/starting_cpu=100
+server/starting_cpu_default=100
+server/starting_ram=256
+server/starting_ram_default=256
+server/starting_bandwidth=50
+server/starting_bandwidth_default=50
+server/starting_credits=0
+server/starting_credits_default=0
+
+server/snapshot_interval_ms=60000
+server/snapshot_interval_ms_default=60000
+server/idle_timeout_ms=300000
+server/idle_timeout_ms_default=300000
+server/sweep_interval_ms=30000
+server/sweep_interval_ms_default=30000
+server/regen_interval_ms=5000
+server/regen_interval_ms_default=5000
+
+admin/username="admin"
+admin/username_default="admin"
+admin/password="zeroday-admin-1337"
+admin/password_default="zeroday-admin-1337"
+admin/token="zeroday-admin-secret-change-me"
+admin/token_default="zeroday-admin-secret-change-me"
+admin/port=8081
+admin/port_default=8081
+admin/rate_limit=30
+admin/rate_limit_default=30
+admin/log_retention_hours=168
+admin/log_retention_hours_default=168
+
+database/url="jdbc:sqlite:data/zeroday.db"
+database/url_default="jdbc:sqlite:data/zeroday.db"
+database/user=""
+database/user_default=""
+database/password=""
+database/password_default=""
+database/max_pool_size=10
+database/max_pool_size_default=10
+database/connection_timeout=30000
+database/connection_timeout_default=30000
+
+data_dir="data"
+data_dir_default="data"

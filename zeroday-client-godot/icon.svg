@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <rect width="128" height="128" rx="16" fill="#0a0a0a"/>
+  <text x="64" y="52" font-family="monospace" font-size="28" font-weight="bold" fill="#00ff44" text-anchor="middle">ZD</text>
+  <text x="64" y="78" font-family="monospace" font-size="12" fill="#00ff44" text-anchor="middle">MMO</text>
+  <rect x="20" y="90" width="88" height="2" fill="#00ff44" opacity="0.3"/>
+  <rect x="20" y="30" width="88" height="2" fill="#00ff44" opacity="0.3"/>
+</svg>

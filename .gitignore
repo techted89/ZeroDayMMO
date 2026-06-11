@@ -1,10 +1,16 @@
-# Unity
+# Godot
+.godot/
+*.import
+export_presets.cfg
+
+# Godot build output
+build/
+*.pck
+
+# Unity (legacy)
 [Ll]ibrary/
 [Tt]emp/
-[Oo]bj/
-[Bb]uild/
-[Bb]uilds/
-[Ll]ogs/
+[Kk]ey[Ss]tore/
 
 # IDE
 .idea/
@@ -12,6 +18,9 @@
 *.csproj
 *.userprefs
 .vs/
+*.swp
+*.swo
+*~
 
 # OS
 .DS_Store
@@ -21,3 +30,20 @@ Thumbs.db
 *.keystore
 *.jks
 .env
+
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Node
+node_modules/
+
+# Generated content
+generated_sprites/
+output_stealth/
+
+# Server build artifacts
+zeroday-server/build/
+zeroday-server/.gradle/
+zeroday-server/data/

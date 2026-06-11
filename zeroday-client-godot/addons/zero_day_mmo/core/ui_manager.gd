@@ -63,6 +63,9 @@ func show_error(message: String) -> void:
 	else:
 		append_terminal_output("[ERROR] %s" % message, "#ff4444")
 
+func show_inventory_panel() -> void:
+	pass
+
 func show_loading(show: bool) -> void:
 	if loading_overlay == null: return
 	if show:
