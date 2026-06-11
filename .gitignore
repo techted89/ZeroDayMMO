@@ -1,7 +1,6 @@
 # Godot
 .godot/
 *.import
-export_presets.cfg
 
 # Godot build output
 build/
@@ -15,7 +14,6 @@ build/
 # IDE
 .idea/
 *.sln
-*.csproj
 *.userprefs
 .vs/
 *.swp
