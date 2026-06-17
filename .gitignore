@@ -13,7 +13,6 @@ build/
 
 # IDE
 .idea/
-*.sln
 *.userprefs
 .vs/
 *.swp
@@ -45,6 +44,10 @@ output_stealth/
 zero-server/build/
 zero-server/.gradle/
 zero-server/data/
+
+# .NET build outputs
+**/bin/
+**/obj/
 
 # Data (player saves, runtime data)
 data/players/
