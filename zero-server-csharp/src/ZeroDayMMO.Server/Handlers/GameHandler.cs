@@ -47,7 +47,7 @@ public class GameHandler : IHandler
                 status = "ok",
                 cpu = player.Cpu,
                 ram = player.Ram,
-                network = player.Network,
+                bandwidth = player.Bandwidth,
                 level = player.Level,
                 experience = player.Experience
             }));

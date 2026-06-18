@@ -27,11 +27,10 @@ public class ChatHandlerTests
             ""message"": ""Hello, world!""
         }");
 
-        var player = new PlayerData
+        var player = new Player
         {
             Id = "p1",
-            Username = "TestUser",
-            DisplayName = "TestUser"
+            Username = "TestUser"
         };
 
         _playerServiceMock

@@ -33,7 +33,7 @@ public class ChatHandler : IHandler
         }
 
         var player = _playerService.GetPlayer(playerId);
-        var displayName = player?.DisplayName ?? "Unknown";
+        var displayName = player?.Username ?? "Unknown";
 
         var broadcastPayload = new
         {
