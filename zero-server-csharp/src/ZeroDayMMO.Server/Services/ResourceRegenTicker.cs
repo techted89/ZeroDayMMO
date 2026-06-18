@@ -44,8 +44,8 @@ public class ResourceRegenTicker : IHostedService
         {
             player.Cpu = Math.Min(player.MaxCpu, player.Cpu + 5);
             player.Ram = Math.Min(player.MaxRam, player.Ram + 5);
-            player.Network = Math.Min(player.MaxNetwork, player.Network + 5);
-            player.LastLogin = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+            player.Bandwidth = Math.Min(player.MaxBandwidth, player.Bandwidth + 5);
+            player.LastLoginAt = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
             _playerService.UpdatePlayer(player);
         }
     }

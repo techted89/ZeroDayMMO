@@ -44,7 +44,6 @@ public class LoginHandler : IHandler
             {
                 playerId = player.Id,
                 username = player.Username,
-                displayName = player.DisplayName,
                 level = player.Level
             }));
     }

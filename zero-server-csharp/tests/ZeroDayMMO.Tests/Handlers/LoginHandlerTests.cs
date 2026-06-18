@@ -21,12 +21,11 @@ public class LoginHandlerTests
     [Fact]
     public async Task Handle_ValidLogin_ReturnsLoginSuccess()
     {
-        var player = new PlayerData
+        var player = new Player
         {
             Id = "p1",
             Username = "TestUser",
             PasswordHash = "hash",
-            DisplayName = "TestUser",
             Level = 5
         };
 
@@ -52,7 +51,7 @@ public class LoginHandlerTests
     {
         _playerServiceMock
             .Setup(ps => ps.Authenticate("TestUser", "wrong"))
-            .Returns((PlayerData?)null);
+            .Returns((Player?)null);
 
         var payload = JsonSerializer.Deserialize<JsonElement>(@"{
             ""username"": ""TestUser"",

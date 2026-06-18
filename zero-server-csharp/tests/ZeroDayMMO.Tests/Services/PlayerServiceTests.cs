@@ -1,14 +1,21 @@
 using ZeroDayMMO.Server.Config;
+using ZeroDayMMO.Server.Security;
 using ZeroDayMMO.Server.Services;
 using ZeroDayMMO.Shared.Models;
 
 namespace ZeroDayMMO.Tests.Services;
 
+class FakePasswordHasher : IPasswordHasher
+{
+    public string Hash(string password) => BCrypt.Net.BCrypt.HashPassword(password);
+    public bool Verify(string password, string hash) => BCrypt.Net.BCrypt.Verify(password, hash);
+}
+
 public class PlayerServiceTests
 {
     private static PlayerService CreateWithTestData()
     {
-        var service = new PlayerService();
+        var service = new PlayerService(new FakePasswordHasher());
         service.CreatePlayer("TestUser", BCrypt.Net.BCrypt.HashPassword("correct_password"), "TestUser");
         service.CreatePlayer("AnotherUser", BCrypt.Net.BCrypt.HashPassword("another_password"), "Another");
         return service;
@@ -48,7 +55,7 @@ public class PlayerServiceTests
     [Fact]
     public void CreatePlayer_AddsPlayer_ToDictionary()
     {
-        var service = new PlayerService();
+        var service = new PlayerService(new FakePasswordHasher());
 
         var player = service.CreatePlayer("NewPlayer", "hash_new", "NewPlayer");
 
