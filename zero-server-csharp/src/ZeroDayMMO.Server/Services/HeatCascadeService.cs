@@ -5,7 +5,6 @@ namespace ZeroDayMMO.Server.Services;
 public class HeatCascadeService : IHostedService
 {
     private readonly IPlayerService _playerService;
-    private readonly CareerService _careerService;
     private readonly GameEventBus? _gameEventBus;
 
     private readonly Dictionary<string, HunterSession> _hunters = new();
@@ -36,10 +35,9 @@ public class HeatCascadeService : IHostedService
         int AttemptCount
     );
 
-    public HeatCascadeService(IPlayerService playerService, CareerService careerService, GameEventBus? gameEventBus = null)
+    public HeatCascadeService(IPlayerService playerService, GameEventBus? gameEventBus = null)
     {
         _playerService = playerService;
-        _careerService = careerService;
         _gameEventBus = gameEventBus;
     }
 
@@ -57,6 +55,7 @@ public class HeatCascadeService : IHostedService
         {
             try { await _loopTask; } catch (OperationCanceledException) { }
         }
+        _cts?.Dispose();
     }
 
     private async Task HeatCascadeLoopAsync(CancellationToken ct)

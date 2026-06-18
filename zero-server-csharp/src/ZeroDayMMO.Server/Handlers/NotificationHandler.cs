@@ -45,7 +45,7 @@ public class NotificationHandler : IHandler
         var includeRead = payload.TryGetProperty("include_read", out var ir)
             ? ir.ValueKind != JsonValueKind.False
             : true;
-        var limit = payload.Int("limit") ?? 50;
+        var limit = Math.Clamp(payload.Int("limit") ?? 50, 1, 200);
 
         var notifications = _notificationService.GetNotifications(playerId, includeRead, limit);
         var unreadCount = _notificationService.GetUnreadCount(playerId);
@@ -102,11 +102,12 @@ public class NotificationHandler : IHandler
                 count++;
         }
 
+        var unreadCount = _notificationService.GetUnreadCount(playerId);
         return Task.FromResult<IActionResult>(
             new MessageResult("notifications", connectionId, new
             {
                 marked_read = count,
-                unread_count = 0
+                unread_count = unreadCount
             }));
     }
 }

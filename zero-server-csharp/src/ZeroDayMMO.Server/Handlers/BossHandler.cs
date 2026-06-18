@@ -7,14 +7,12 @@ namespace ZeroDayMMO.Server.Handlers;
 public class BossHandler : IHandler
 {
     private readonly CoopBossService _coopBossService;
-    private readonly IPlayerService _playerService;
 
     public string MessageType => "boss_create";
 
-    public BossHandler(CoopBossService coopBossService, IPlayerService playerService)
+    public BossHandler(CoopBossService coopBossService)
     {
         _coopBossService = coopBossService;
-        _playerService = playerService;
     }
 
     public async Task<IActionResult> HandleAsync(string connectionId, JsonElement? payload, string? requestId)

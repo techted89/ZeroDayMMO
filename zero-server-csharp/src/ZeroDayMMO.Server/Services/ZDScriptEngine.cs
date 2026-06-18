@@ -112,8 +112,6 @@ public class NexusObject
 
 public class IPObject : NexusObject
 {
-    private static readonly Random _rng = new();
-
     public string Address { get; }
     public bool IsOnline { get; set; }
     public List<int> OpenPorts { get; set; } = new();
@@ -135,9 +133,9 @@ public class IPObject : NexusObject
     {
         IsOnline = true;
         OpenPorts = new List<int> { 22, 80, 443, 8080 }
-            .Where(_ => _rng.NextDouble() > 0.3)
+            .Where(_ => Random.Shared.NextDouble() > 0.3)
             .ToList();
-        Os = new[] { "Linux 5.15", "Windows Server 2022", "FreeBSD 13", "macOS Ventura" }[_rng.Next(4)];
+        Os = new[] { "Linux 5.15", "Windows Server 2022", "FreeBSD 13", "macOS Ventura" }[Random.Shared.Next(4)];
         Properties["isOnline"] = NexusValue.BoolVal(true);
         Properties["openPorts"] = NexusValue.ArrayVal(OpenPorts.Select(p => NexusValue.NumVal(p)).ToList());
         Properties["os"] = NexusValue.StrVal(Os);
@@ -146,7 +144,7 @@ public class IPObject : NexusObject
 
     private NexusValue PingMethod(List<NexusValue> args)
     {
-        var rtt = _rng.Next(1, 51);
+        var rtt = Random.Shared.Next(1, 51);
         return NexusValue.StrVal($"Ping to {Address}: {rtt}ms");
     }
 
@@ -178,8 +176,6 @@ public class PortObject : NexusObject
 
 public class ExploitObject : NexusObject
 {
-    private static readonly Random _rng = new();
-
     public string ExploitName { get; }
     public int Power { get; }
 
@@ -202,7 +198,7 @@ public class ExploitObject : NexusObject
             NexusValue.StrValue sv => sv.Value,
             _ => "Unknown"
         };
-        var success = _rng.NextDouble() > 0.3;
+        var success = Random.Shared.NextDouble() > 0.3;
         return NexusValue.StrVal(
             success
                 ? $"Exploit '{ExploitName}' injected into {targetName}! SYSTEM COMPROMISED"

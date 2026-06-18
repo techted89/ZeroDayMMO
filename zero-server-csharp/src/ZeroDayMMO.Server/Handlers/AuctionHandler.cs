@@ -7,14 +7,12 @@ namespace ZeroDayMMO.Server.Handlers;
 public class AuctionHandler : IHandler
 {
     private readonly AuctionService _auctionService;
-    private readonly IPlayerService _playerService;
 
     public string MessageType => "auction_list";
 
-    public AuctionHandler(AuctionService auctionService, IPlayerService playerService)
+    public AuctionHandler(AuctionService auctionService)
     {
         _auctionService = auctionService;
-        _playerService = playerService;
     }
 
     public async Task<IActionResult> HandleAsync(string connectionId, JsonElement? payload, string? requestId)

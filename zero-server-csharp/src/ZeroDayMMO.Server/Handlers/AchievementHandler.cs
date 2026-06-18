@@ -73,7 +73,7 @@ public class AchievementHandler : IHandler
             };
         }).ToList();
 
-        var unread = player.UnlockedAchievements.Count - player.AchievementProgress.Count(kvp => kvp.Value.Completed);
+        var unread = player.AchievementProgress.Count(kvp => kvp.Value.Completed) - player.UnlockedAchievements.Count;
 
         return new MessageResult("achievements", connectionId, new
         {

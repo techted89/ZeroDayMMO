@@ -21,7 +21,7 @@ public class CommandService
     private readonly PlayerService _playerService;
     private readonly GameEventBus? _gameEventBus;
 
-    private static readonly Random Rng = new();
+
 
     public CommandService(PlayerService playerService, GameEventBus? gameEventBus = null)
     {
@@ -104,7 +104,13 @@ public class CommandService
     {
         if (args.Length > 0 && player.UnlockedCommands.Contains(args[0]))
         {
-            var cmd = CommandRegistry.CommandMap[args[0]];
+            if (!CommandRegistry.CommandMap.TryGetValue(args[0], out var cmd))
+                return new CommandResult
+                {
+                    Command = "help",
+                    Output = $"Command '{args[0]}' not found in registry.",
+                    Status = CommandStatus.ERROR
+                };
             return new CommandResult
             {
                 Command = "help",
@@ -541,7 +547,7 @@ public class CommandService
                      $"Payload: {payload}\n\n" +
                      $"[+] Target identified: {GetHostname(target)}\n" +
                      "[+] OS: Linux 5.15 - x86_64\n" +
-                     $"[+] Vulnerability detected: CVE-2024-{Rng.Next(1000, 10000)}\n" +
+                     $"[+] Vulnerability detected: CVE-2024-{Random.Shared.Next(1000, 10000)}\n" +
                      "[+] Exploiting...\n" +
                      "[+] Payload delivered successfully!\n" +
                      $"[+] Session opened: {player.Username}@{GetHostname(target)} (uid=0)\n" +
@@ -593,7 +599,7 @@ public class CommandService
         var file = args[0];
         var key = args.FirstOrDefault(a => a.StartsWith("--key="))?.Split('=')[1] ?? "bruteforce";
         var method = key == "bruteforce" ? "Brute force + Dictionary" : "AES-256-CBC with provided key";
-        var encKey = string.Concat(Enumerable.Range(0, 16).Select(_ => "0123456789abcdef"[Rng.Next(16)]));
+        var encKey = string.Concat(Enumerable.Range(0, 16).Select(_ => "0123456789abcdef"[Random.Shared.Next(16)]));
 
         return new CommandResult
         {
@@ -656,8 +662,8 @@ public class CommandService
 
         var target = args[0];
         var persistent = args.Any(a => a == "--persistent");
-        var pid = Rng.Next(1000, 10000);
-        var port = Rng.Next(40000, 60001);
+        var pid = Random.Shared.Next(1000, 10000);
+        var port = Random.Shared.Next(40000, 60001);
 
         return new CommandResult
         {
@@ -755,8 +761,8 @@ public class CommandService
 
         var data = args[0];
         var method = args.FirstOrDefault(a => a.StartsWith("--method="))?.Split('=')[1] ?? "aes-256";
-        var encrypted = string.Concat(Enumerable.Range(0, 64).Select(_ => "0123456789abcdef"[Rng.Next(16)]));
-        var key = string.Concat(Enumerable.Range(0, 32).Select(_ => "0123456789abcdef"[Rng.Next(16)]));
+        var encrypted = string.Concat(Enumerable.Range(0, 64).Select(_ => "0123456789abcdef"[Random.Shared.Next(16)]));
+        var key = string.Concat(Enumerable.Range(0, 32).Select(_ => "0123456789abcdef"[Random.Shared.Next(16)]));
 
         return new CommandResult
         {
@@ -831,7 +837,7 @@ public class CommandService
     private CommandResult HandleTrace(Player player, string[] args)
     {
         var session = args.Length > 0 ? args[0] : "all";
-        var suspicious = Rng.Next(1, 6);
+        var suspicious = Random.Shared.Next(1, 6);
 
         return new CommandResult
         {
@@ -846,7 +852,7 @@ public class CommandService
                      $"│  0x{RandHex(4)}   {RandIp()}    CN      Active - port scanning     │\n" +
                      $"│  0x{RandHex(4)}   {RandIp()}    US      Blocked - firewall rule    │\n" +
                      "└──────────────────────────────────────────────────────────┘\n\n" +
-                     $"[!] Trace route to 185.{Rng.Next(10, 100)}.{Rng.Next(1, 255)}.{Rng.Next(1, 255)}\n" +
+                     $"[!] Trace route to 185.{Random.Shared.Next(10, 100)}.{Random.Shared.Next(1, 255)}.{Random.Shared.Next(1, 255)}\n" +
                      "[!] Attacker likely using VPN/proxy chain",
             Status = CommandStatus.SUCCESS
         };
@@ -884,12 +890,12 @@ public class CommandService
             Command = "overload",
             Output = $"Launching DDoS attack on {target}...\n" +
                      $"Duration: {duration}s\n" +
-                     $"[+] Botnet nodes engaged: {Rng.Next(5, 51)}\n" +
+                     $"[+] Botnet nodes engaged: {Random.Shared.Next(5, 51)}\n" +
                      "[+] Attack vector: UDP flood + SYN flood + HTTP flood\n\n" +
-                     $"Bandwidth usage: {Rng.Next(50, 501)} Mbps\n" +
-                     $"Packets sent: {Rng.Next(10000, 100001)}\n\n" +
+                     $"Bandwidth usage: {Random.Shared.Next(50, 501)} Mbps\n" +
+                     $"Packets sent: {Random.Shared.Next(10000, 100001)}\n\n" +
                      $"[!] Target {target} is experiencing service degradation\n" +
-                     $"[!] Estimated downtime: {duration + Rng.Next(10, 31)} seconds\n\n" +
+                     $"[!] Estimated downtime: {duration + Random.Shared.Next(10, 31)} seconds\n\n" +
                      "Attack in progress... Type 'status' to monitor.",
             Status = CommandStatus.SUCCESS
         };
@@ -919,9 +925,9 @@ public class CommandService
                      "[##################] 65% - Trying 'welcome'...\n" +
                      "[######################] 80% - Trying 'monkey'...\n" +
                      "[########################] 95% - Trying 'dragon'...\n\n" +
-                     $"[+] CRACKED! Password: P@ssw0rd!{Rng.Next(10, 100)}\n\n" +
-                     $"Time elapsed: {Rng.Next(2, 31)}s\n" +
-                     $"Attempts: {Rng.Next(10000, 1000001)}",
+                     $"[+] CRACKED! Password: P@ssw0rd!{Random.Shared.Next(10, 100)}\n\n" +
+                     $"Time elapsed: {Random.Shared.Next(2, 31)}s\n" +
+                     $"Attempts: {Random.Shared.Next(10000, 1000001)}",
             Status = CommandStatus.SUCCESS
         };
     }
@@ -933,7 +939,7 @@ public class CommandService
 
         var target = args[0];
         var stealth = args.Any(a => a == "--stealth");
-        var port = Rng.Next(30000, 65001);
+        var port = Random.Shared.Next(30000, 65001);
 
         return new CommandResult
         {
@@ -961,34 +967,34 @@ public class CommandService
                 Command = "botnet",
                 Output = "Botnet Status\n" +
                          "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-                         $"Active nodes: {Rng.Next(3, 51)}\n" +
-                         $"Total bandwidth: {Rng.Next(100, 1001)} Mbps\n" +
-                         $"Total CPU: {Rng.Next(500, 5001)} MHz\n" +
-                         $"Total RAM: {Rng.Next(1024, 16385)} MB\n\n" +
+                         $"Active nodes: {Random.Shared.Next(3, 51)}\n" +
+                         $"Total bandwidth: {Random.Shared.Next(100, 1001)} Mbps\n" +
+                         $"Total CPU: {Random.Shared.Next(500, 5001)} MHz\n" +
+                         $"Total RAM: {Random.Shared.Next(1024, 16385)} MB\n\n" +
                          "Node distribution:\n" +
-                         $"  ├─ Servers: {Rng.Next(1, 11)}\n" +
-                         $"  ├─ Workstations: {Rng.Next(1, 21)}\n" +
-                         $"  ├─ IoT devices: {Rng.Next(1, 16)}\n" +
-                         $"  └─ Mobile: {Rng.Next(0, 6)}\n\n" +
+                         $"  ├─ Servers: {Random.Shared.Next(1, 11)}\n" +
+                         $"  ├─ Workstations: {Random.Shared.Next(1, 21)}\n" +
+                         $"  ├─ IoT devices: {Random.Shared.Next(1, 16)}\n" +
+                         $"  └─ Mobile: {Random.Shared.Next(0, 6)}\n\n" +
                          "Commands: botnet scan, botnet attack <target>, botnet update",
                 Status = CommandStatus.SUCCESS
             },
             "scan" => new CommandResult
             {
                 Command = "botnet",
-                Output = $"Scanning for vulnerable hosts to add to botnet... Found {Rng.Next(2, 11)} new targets.",
+                Output = $"Scanning for vulnerable hosts to add to botnet... Found {Random.Shared.Next(2, 11)} new targets.",
                 Status = CommandStatus.SUCCESS
             },
             "attack" => new CommandResult
             {
                 Command = "botnet",
-                Output = $"Botnet attack initiated on {(args.Length > 1 ? args[1] : "unknown")}. {Rng.Next(10, 101)} nodes participating.",
+                Output = $"Botnet attack initiated on {(args.Length > 1 ? args[1] : "unknown")}. {Random.Shared.Next(10, 101)} nodes participating.",
                 Status = CommandStatus.SUCCESS
             },
             "update" => new CommandResult
             {
                 Command = "botnet",
-                Output = $"Updating botnet payload across all nodes... {Rng.Next(3, 51)} nodes updated successfully.",
+                Output = $"Updating botnet payload across all nodes... {Random.Shared.Next(3, 51)} nodes updated successfully.",
                 Status = CommandStatus.SUCCESS
             },
             _ => new CommandResult
@@ -1030,7 +1036,7 @@ public class CommandService
             return new CommandResult { Command = "zero-day", Output = "Usage: zero-day <target> [--cve=<id>]", Status = CommandStatus.ERROR };
 
         var target = args[0];
-        var cve = args.FirstOrDefault(a => a.StartsWith("--cve="))?.Split('=')[1] ?? $"CVE-2024-{Rng.Next(1000, 10000)}";
+        var cve = args.FirstOrDefault(a => a.StartsWith("--cve="))?.Split('=')[1] ?? $"CVE-2024-{Random.Shared.Next(1000, 10000)}";
 
         return new CommandResult
         {
@@ -1076,7 +1082,7 @@ public class CommandService
                      "• Estimated success rate: 87.3%\n" +
                      "• Risk level: MEDIUM\n" +
                      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n" +
-                     $"AI processing complete. {Rng.Next(100, 501)} CPU cycles consumed.",
+                     $"AI processing complete. {Random.Shared.Next(100, 501)} CPU cycles consumed.",
             Status = CommandStatus.SUCCESS
         };
     }
@@ -1116,10 +1122,10 @@ public class CommandService
     }
 
     private string RandHex(int len) =>
-        string.Concat(Enumerable.Range(0, len).Select(_ => "0123456789abcdef"[Rng.Next(16)]));
+        string.Concat(Enumerable.Range(0, len).Select(_ => "0123456789abcdef"[Random.Shared.Next(16)]));
 
     private string RandIp() =>
-        string.Join(".", Enumerable.Range(0, 4).Select(_ => Rng.Next(10, 256)));
+        string.Join(".", Enumerable.Range(0, 4).Select(_ => Random.Shared.Next(10, 256)));
 
     private static readonly Dictionary<string, string> FileContents = new()
     {

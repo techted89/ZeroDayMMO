@@ -165,7 +165,7 @@ public static class CraftingRecipes
         new CraftingRecipe
         {
             Id = "decoy_data", Name = "Generate Decoy Data",
-            Description = "Create convincing decoy files to mislead追踪ers",
+            Description = "Create convincing decoy files to mislead tracers",
             ResultType = ItemType.DECOY_DATA, ResultName = "Fake Credentials Bundle", ResultRarity = ItemRarity.COMMON,
             Ingredients = new() { new Ingredient { ItemType = ItemType.KNOWLEDGE_FRAGMENT, Quantity = 2 } },
             CraftingTimeMs = 5000, RequiredLevel = 1, XpReward = 25,

@@ -8,15 +8,13 @@ public class CareerHandler : IHandler
 {
     private readonly CareerService _careerService;
     private readonly HeatCascadeService _heatCascadeService;
-    private readonly IPlayerService _playerService;
 
     public string MessageType => "career_choose";
 
-    public CareerHandler(CareerService careerService, HeatCascadeService heatCascadeService, IPlayerService playerService)
+    public CareerHandler(CareerService careerService, HeatCascadeService heatCascadeService)
     {
         _careerService = careerService;
         _heatCascadeService = heatCascadeService;
-        _playerService = playerService;
     }
 
     public Task<IActionResult> HandleAsync(string connectionId, JsonElement? payload, string? requestId)
@@ -72,24 +70,24 @@ public class CareerHandler : IHandler
         return Task.FromResult<IActionResult>(new MessageResult("error", connectionId, new { message = result.Message }));
     }
 
-    public async Task<IActionResult> HandleArrest(string connectionId, JsonElement? payload, string? requestId)
+    public Task<IActionResult> HandleArrest(string connectionId, JsonElement? payload, string? requestId)
     {
         var playerId = payload?.Str("playerId");
         if (string.IsNullOrEmpty(playerId))
-            return new MessageResult("error", connectionId, new { message = "playerId required" });
+            return Task.FromResult<IActionResult>(new MessageResult("error", connectionId, new { message = "playerId required" }));
 
         var targetId = payload?.Str("targetId");
         if (string.IsNullOrEmpty(targetId))
-            return new MessageResult("error", connectionId, new { message = "Target player ID required" });
+            return Task.FromResult<IActionResult>(new MessageResult("error", connectionId, new { message = "Target player ID required" }));
 
         var result = _careerService.AttemptArrest(playerId, targetId);
         if (result.Success)
-            return new MessageResult("arrest_success", connectionId, new
+            return Task.FromResult<IActionResult>(new MessageResult("arrest_success", connectionId, new
             {
                 message = result.Message,
                 justiceDelta = result.JusticeDelta
-            });
-        return new MessageResult("error", connectionId, new { message = result.Message });
+            }));
+        return Task.FromResult<IActionResult>(new MessageResult("error", connectionId, new { message = result.Message }));
     }
 
     public async Task<IActionResult> HandleHunterStatus(string connectionId, JsonElement? payload, string? requestId)
