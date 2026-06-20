@@ -1,0 +1,358 @@
+[gd_scene load_steps=30 format=3 uid="uid://main25d0001"]
+
+[ext_resource type="Script" path="res://scripts/core/game_manager.gd" id="1_gm"]
+[ext_resource type="Script" path="res://scripts/core/ui_manager.gd" id="3_um"]
+[ext_resource type="Script" path="res://scripts/systems/terminal/terminal_core.gd" id="4_tc"]
+[ext_resource type="Script" path="res://scripts/systems/terminal/terminal_effects.gd" id="5_te"]
+[ext_resource type="Script" path="res://scripts/systems/terminal/terminal_autocomplete.gd" id="6_ta"]
+[ext_resource type="Script" path="res://scripts/systems/terminal/terminal_boot_animation.gd" id="7_tb"]
+[ext_resource type="Script" path="res://scripts/systems/terminal/terminal_command_animator.gd" id="8_tca"]
+[ext_resource type="Script" path="res://scripts/systems/effects/screen_effects.gd" id="9_se"]
+[ext_resource type="Script" path="res://scripts/systems/effects/ui_animator.gd" id="10_uia"]
+[ext_resource type="Script" path="res://scripts/systems/effects/digital_rain_effect.gd" id="11_dr"]
+[ext_resource type="Script" path="res://scripts/systems/effects/combat_fx.gd" id="12_cfx"]
+[ext_resource type="Script" path="res://scripts/systems/events/event_system.gd" id="14_es"]
+[ext_resource type="Script" path="res://scripts/systems/events/task_controller.gd" id="15_tc2"]
+[ext_resource type="Script" path="res://scripts/systems/ui/login_panel.gd" id="16_lp"]
+[ext_resource type="Script" path="res://scripts/systems/ui/hud_controller.gd" id="17_hud"]
+[ext_resource type="Script" path="res://scripts/systems/ui/hud_resource_warning.gd" id="18_hudrw"]
+[ext_resource type="Script" path="res://scripts/systems/ui/notification_center.gd" id="19_nc"]
+[ext_resource type="Script" path="res://scripts/systems/ui/side_panel.gd" id="20_sp"]
+[ext_resource type="Script" path="res://scripts/systems/ui/quick_action_bar.gd" id="21_qab"]
+[ext_resource type="Script" path="res://scripts/systems/ui/world_map_explorer.gd" id="22_wme"]
+[ext_resource type="PackedScene" path="res://scenes/combat_visuals.tscn" id="23_cv"]
+[ext_resource type="Shader" path="res://Shaders/CRTTerminal.gdshader" id="28_shader"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_crt"]
+shader = ExtResource("28_shader")
+shader_parameter/scan_line_intensity = 0.15
+shader_parameter/crt_curvature = 0.02
+shader_parameter/crt_distortion = 0.01
+shader_parameter/color_tint = Color(0, 1, 0.2, 1)
+shader_parameter/glow_intensity = 0.2
+shader_parameter/noise_amount = 0.02
+
+[node name="Main" type="Node25D" unique_id=123456789]
+script = ExtResource("1_gm")
+
+[node name="Main2D" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="UIManager" type="Node" parent="."]
+script = ExtResource("3_um")
+
+[node name="ScreenEffects" type="Node" parent="."]
+script = ExtResource("9_se")
+
+[node name="EventSystem" type="Node" parent="."]
+script = ExtResource("14_es")
+
+[node name="TaskController" type="Node" parent="."]
+script = ExtResource("15_tc2")
+
+[node name="UIAnimator" type="Node" parent="."]
+script = ExtResource("10_uia")
+
+[node name="LoginPanel" type="PanelContainer" parent="Main2D" unique_id=112233444]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -150.0
+offset_right = 200.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("16_lp")
+
+[node name="VBox" type="VBoxContainer" parent="Main2D/LoginPanel"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Main2D/LoginPanel/VBox"]
+layout_mode = 2
+text = "ZERODAY NETWORK"
+horizontal_alignment = 1
+
+[node name="Username" type="LineEdit" parent="Main2D/LoginPanel/VBox"]
+layout_mode = 2
+placeholder_text = "Username"
+
+[node name="Password" type="LineEdit" parent="Main2D/LoginPanel/VBox"]
+layout_mode = 2
+secret = true
+placeholder_text = "Password"
+
+[node name="ConnectBtn" type="Button" parent="Main2D/LoginPanel/VBox"]
+layout_mode = 2
+text = "CONNECT"
+
+[node name="RegisterBtn" type="Button" parent="Main2D/LoginPanel/VBox"]
+layout_mode = 2
+text = "REGISTER"
+
+[node name="ErrorLabel" type="RichTextLabel" parent="Main2D/LoginPanel/VBox"]
+layout_mode = 2
+bbcode_enabled = true
+text = ""
+
+[node name="HUD" type="MarginContainer" parent="Main2D" unique_id=445566777]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("17_hud")
+
+[node name="TopBar" type="HBoxContainer" parent="Main2D/HUD" unique_id=112233444]
+layout_mode = 2
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="LevelLabel" type="RichTextLabel" parent="Main2D/HUD/TopBar" unique_id=111222333]
+groups = ["__unique_name"]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "Lv. 1"
+
+[node name="CreditsLabel" type="RichTextLabel" parent="Main2D/HUD/TopBar" unique_id=334455666]
+groups = ["__unique_name"]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "$0"
+
+[node name="ZoomButtons" type="HBoxContainer" parent="Main2D/HUD/TopBar" unique_id=889900111]
+
+[node name="ZoomOut" type="Button" parent="Main2D/HUD/TopBar/ZoomButtons" unique_id=990011222"]
+text = "-"
+
+[node name="ZoomPercent" type="Label" parent="Main2D/HUD/TopBar/ZoomButtons" unique_id=223344555"]
+text = "100%"
+
+[node name="ZoomReset" type="Button" parent="Main2D/HUD/TopBar/ZoomButtons" unique_id=556677888"]
+modulate = Color(1, 1, 1, 0)
+
+[node name="ZoomIn" type="Button" parent="Main2D/HUD/TopBar/ZoomButtons" unique_id=778899000"]
+text = "+"
+
+[node name="ViewModeButtons" type="HBoxContainer" parent="Main2D/HUD/TopBar" unique_id=445566777]
+
+[node name="45Degree" type="CheckBox" parent="Main2D/HUD/TopBar/ViewModeButtons" unique_id=778899000"]
+text = "45°"
+
+[node name="Isometric" type="CheckBox" parent="Main2D/HUD/TopBar/ViewModeButtons" unique_id=990011222"]
+text = "Isometric"
+
+[node name="TopDown" type="CheckBox" parent="Main2D/HUD/TopBar/ViewModeButtons" unique_id=223344555"]
+text = "Top Down"
+
+[node name="FrontSide" type="CheckBox" parent="Main2D/HUD/TopBar/ViewModeButtons" unique_id=334556666"]
+text = "Front Side"
+
+[node name="ObliqueY" type="CheckBox" parent="Main2D/HUD/TopBar/ViewModeButtons" unique_id=667788999"]
+text = "Oblique Y"
+
+[node name="ObliqueZ" type="CheckBox" parent="Main2D/HUD/TopBar/ViewModeButtons" unique_id=889900111"]
+text = "Oblique Z"
+
+[node name="CPUBar" type="ProgressBar" parent="Main2D/HUD" unique_id=1001]
+groups = ["__unique_name"]
+layout_mode = 2
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 10.0
+offset_top = 45.0
+offset_right = -10.0
+offset_bottom = 60.0
+grow_horizontal = 2
+max_value = 100.0
+value = 100.0
+
+[node name="RAMBar" type="ProgressBar" parent="Main2D/HUD" unique_id=1002]
+groups = ["__unique_name"]
+layout_mode = 2
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 10.0
+offset_top = 65.0
+offset_right = -10.0
+offset_bottom = 80.0
+grow_horizontal = 2
+max_value = 100.0
+value = 100.0
+
+[node name="BWBar" type="ProgressBar" parent="Main2D/HUD" unique_id=1003]
+groups = ["__unique_name"]
+layout_mode = 2
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 10.0
+offset_top = 85.0
+offset_right = -10.0
+offset_bottom = 100.0
+grow_horizontal = 2
+max_value = 100.0
+value = 100.0
+
+[node name="NotificationCenter" type="PanelContainer" parent="Main2D" unique_id=778899000]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -300.0
+offset_top = 50.0
+offset_right = -10.0
+offset_bottom = 400.0
+grow_horizontal = 0
+script = ExtResource("19_nc")
+
+[node name="LoadingOverlay" type="ColorRect" parent="Main2D" unique_id=445566778]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.8)
+
+[node name="WorldMapExplorer" type="Control" parent="Main2D" unique_id=556677888]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 110.0
+offset_right = -10.0
+offset_bottom = -70.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("22_wme")
+
+[node name="SidePanel" type="PanelContainer" parent="Main2D" unique_id=889900111]
+visible = false
+layout_mode = 1
+anchors_preset = 0
+offset_left = 10.0
+offset_top = 110.0
+offset_right = 260.0
+offset_bottom = 400.0
+script = ExtResource("20_sp")
+
+[node name="QuickActionBar" type="HBoxContainer" parent="Main2D" unique_id=111222333]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -60.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("21_qab")
+
+[node name="Terminal" type="PanelContainer" parent="Main2D" unique_id=334455666]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 110.0
+offset_right = -10.0
+offset_bottom = -70.0
+script = ExtResource("4_tc")
+
+[node name="TerminalEffects" type="Node" parent="Main2D/Terminal"]
+script = ExtResource("5_te")
+
+[node name="TerminalAutoComplete" type="Node" parent="Main2D/Terminal"]
+script = ExtResource("6_ta")
+
+[node name="TerminalBootAnimation" type="Node" parent="Main2D/Terminal"]
+script = ExtResource("7_tb")
+
+[node name="TerminalCommandAnimator" type="Node" parent="Main2D/Terminal"]
+script = ExtResource("8_tca")
+
+[node name="VBox" type="VBoxContainer" parent="Main2D/Terminal"]
+layout_mode = 2
+
+[node name="OutputScroll" type="ScrollContainer" parent="Main2D/Terminal/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="OutputText" type="RichTextLabel" parent="Main2D/Terminal/VBox/OutputScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+scroll_active = false
+text = "[color=#00FF00]╔══════════════════════════════════════╗
+║       ZERODAY TERMINAL v1.0         ║
+║      MMORPG Hacking Simulator       ║
+╠══════════════════════════════════════╣
+║  Connect to server to begin...      ║
+╚══════════════════════════════════════╝[/color]"
+
+[node name="InputField" type="LineEdit" parent="Main2D/Terminal/VBox"]
+layout_mode = 2
+placeholder_text = "> Type a command..."
+
+[node name="DigitalRain" type="Control" parent="Main2D" unique_id=667788999]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("11_dr")
+
+[node name="CombatFX" type="Node" parent="Main2D" unique_id=990011222]
+script = ExtResource("12_cfx")
+
+[node name="CombatVisuals" type="Control" parent="Main2D" unique_id=556677889]
+instance = ExtResource("23_cv")
+visible = false
+
+[node name="WorldMapExplorer" type="Control" parent="Main2D" unique_id=887766554]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = 50.0
+offset_right = -50.0
+offset_bottom = -50.0
+script = ExtResource("22_wme")
+
+[node name="HUDResourceWarning" type="Node" parent="."]
+script = ExtResource("18_hudrw")
+
+[node name="CRTOverlay" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_crt")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)

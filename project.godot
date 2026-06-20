@@ -13,19 +13,26 @@ config_version=5
 config/name="ZeroDayMMO"
 config/description="MMORPG Hacking Simulator — 2.5D terminal-based game client"
 config/version="1.0.0"
-run/main_scene="res://Scenes/main.tscn"
+run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
-ZeroDayCore="*res://addons/zero_day_mmo/core/zero_day_core.gd"
-NetworkManager="*res://addons/zero_day_mmo/core/network_manager.gd"
-GameManager="*res://addons/zero_day_mmo/core/game_manager.gd"
-UIManager="*res://addons/zero_day_mmo/core/ui_manager.gd"
-ServerConfig="*res://addons/zero_day_mmo/core/server_config.gd"
-TerminalParser="*res://addons/zero_day_mmo/systems/terminal/terminal_parser.gd"
-EnvironmentVariables="*res://addons/zero_day_mmo/core/environment_variables.gd"
+ZeroDayCore="*res://scripts/core/zero_day_core.gd"
+NetworkManager="*res://scripts/core/network_manager.gd"
+GameManager="*res://scripts/core/game_manager.gd"
+UIManager="*res://scripts/core/ui_manager.gd"
+ServerConfig="*res://scripts/core/server_config.gd"
+TerminalParser="*res://scripts/systems/terminal/terminal_parser.gd"
+EnvironmentVariables="*res://scripts/core/environment_variables.gd"
+SpriteManager="*res://scripts/core/sprite_manager.gd"
+NodeController="*res://scripts/systems/gameplay/node_controller.gd"
+PlayerSpawnManager="*res://scripts/systems/gameplay/player_spawn_manager.gd"
+BaseManager="*res://scripts/systems/gameplay/base_manager.gd"
+EventManager="*res://scripts/systems/gameplay/event_manager.gd"
+TutorialManager="*res://scripts/systems/gameplay/tutorial_manager.gd"
+SkillTree="*res://scripts/systems/character/skill_tree.gd"
 
 [display]
 

@@ -1,0 +1,417 @@
+{
+  "_metadata": {
+    "description": "ZeroDayMMO - Complete game graphics prompts for text-to-image generation",
+    "grid_spec": "All spritesheets use 16 rows x 4 columns layout: 16 rotational angles (22.5° increments, row 1=0° south-facing) x 4 animation frames (Frame 0=Rest, Frame 1=Action Peak 1, Frame 2=Action Peak 2, Frame 3=Snap-Back). Cells 64x64px unless noted. Pure #000000 canvas for transparency.",
+    "resolution_guide": "spritesheets: 1024x640 (64x64 cells) or 2048x1280 (128x128). Single sprites: 512x512. Icons: 32x32. UI panels: 1920x1080. Backgrounds: 1920x1080."
+  },
+
+  "characters": {
+
+    "ch_nova_hexstress": "A sleek, athletic female character with sharp confident posture, high asymmetrical hair cut glowing with shifting neon blues and purples like live circuitry, electric irises with faint static arcs crackling at eye corners. Wears a form-fitting combat suit with segmented armor plates on shoulders, chest, and thighs trimmed in pulsing neon lines. A long tattered techno-cloak flickering with holographic glitches and hex symbols trails faint sparks. Gloves and boots reinforced with metallic contact points glow when grounded. Small floating drones orbit shoulders leaving light trails like digital butterflies. 2.5D isometric projection, 2:1 dimetric perspective, sharp pixel art style. GRID LAYOUT: 16 rows by 4 columns. Row 1 (0 degrees) shows full frontal symmetry. Row 3 (45 degrees) foreshortens left side, expands right profile. Row 9 (180 degrees) shows back panel. ANIMATION: Column 1 static neutral rest. Columns 2-3 combat movement peaks. Column 4 snap-back to rest coordinates. Pure #000000 canvas. 1024x640px.",
+
+    "ch_nix_glitchvixen": "A slender agile female with relaxed casual stance, medium-length soft wavy hair in pastel teal and white that occasionally breaks into pixelated glitch fragments before snapping back. Eyes display subtle HUD overlays with scrolling code reflected in pupils. Outfit is hybrid streetwear-tech: cropped jacket with holographic panels, high-waisted tactical pants, layered belts with data drives and cables. Clothing textures distort visually with flickering edges, pattern skips and duplicates. A compact hovering glitch-familiar device at her side constantly reconfiguring shape out of floating polygons. 2.5D isometric projection, 2:1 dimetric perspective, sharp pixel art style. GRID LAYOUT: 16 rows by 4 columns representing rotational angles 0-360 degrees in 22.5 degree increments. ANIMATION: 4-column stride loop with snap-back. Sheer pixel art on pitch-black canvas. 1024x640px.",
+
+    "ch_cyber_proxyghost": "A lean toned male with quiet predatory stillness, face covered by a smooth angular mask with minimalistic visor showing thin cyan eye-slits glowing through. Hood drawn low over head attached to a long lightweight cloak that appears partially transparent like noise-filtered static. Armor is matte black and dark gray broken by thin pulsing circuit lines running along arms, spine, and chest in ghostly patterns. Silhouette edges occasionally distort as if phasing out of sync with reality. Utility harness and belt covered with compact devices: signal jammers, cables, folding antennae, blade-sized data injectors. Shadow lags a fraction behind or splits momentarily. 2.5D isometric projection, sharp pixel art style. 16 rows by 4 columns rotational matrix. 4-frame animation cycle with snap-back rest. Pure black background. 1024x640px.",
+
+    "ch_anti_matrixwarlock": "A broad-shouldered imposing figure with solid grounded stance, short neatly cut dark hair with glowing circuit-trace lines shaved into sides. Eyes have a deep steady ember-like glow. Heavy layered armor plating resembling fusion of medieval plate and server rack design: large metal segments interlocked with vent-like panels and glowing seams. Chest and shoulders bear luminous firewall sigils and geometric glyphs slowly scrolling like a living security diagram. A large rectangular shield or arm-mounted barrier projector etched with dense runic code patterns generating faint hex-grid holograms. Long armored coat with matrix-like streams of symbols flowing down fabric, occasionally freezing and refreshing like a terminal screen. 2.5D isometric, sharp pixel art. 16x4 rotational spritesheet. 4-frame animation. Pitch-black canvas. 1024x640px.",
+
+    "ch_player_base": "A modular player-owned cyberpunk hideout structure in 2.5D isometric pixel art. A compact fortified command center with server rack walls, holographic display panels, neon-trimmed access corridors, a central command chair terminal, cable conduits running along metallic floor panels, wall-mounted data shard storage, ventilation ducts, and a reinforced blast door entrance. The structure has a low-profile bunker aesthetic with angular geometric shapes, matte dark metal surfaces, and cyan-blue accent lighting. Modular expansion slots visible on sides for future upgrades. 64x64px cell grid, pure black canvas.",
+
+    "ch_player_base_upgrade_1": "Upgraded version of the player hideout base featuring additional antenna array on roof, expanded server farm wing on the right side, larger holographic tactical display, upgraded blast door with security turret mounts, extra cooling vents, and a gear/weapon crafting station visible through a window. Same 2.5D isometric pixel art style, dark metal with increasing cyan neon trim density. 64x64px cell grid, pure black canvas.",
+
+    "ch_player_base_upgrade_2": "Fully upgraded player command center with multi-level structure, drone landing pad on upper deck, expanded server wings on both sides, quantum computing core visible through armored glass panels, advanced security grid projectors, satellite uplink dish, and multiple holographic screens displaying network maps. Maximum fortress aesthetic with heavy armor paneling and bright neon purple-cyan accents. 64x64px cell grid, pure black canvas."
+
+  },
+
+  "enemies": {
+
+    "enemy_virus_spritesheet": "A hostile digital virus entity in 2.5D isometric pixel art, designed as a writhing mass of jagged neon-green geometric shapes and binary code fragments. The core body is a shifting cluster of angular polyhedra with bright toxic green eyes at its center. Tendrils of pure data-code lash outward like tentacles, each ending in a sharp glowing point. The surface texture flickers with scrolling hexadecimal characters and warning symbols. The entity pulses with a sickly bio-luminescent glow and leaves faint green after-image trails. GRID: 16 rows by 4 columns for 16-directional rotation and 4-frame idle-agitated animation cycle. Frame 1: Rest, tendrils coiled. Frame 2: Attack expansion, tendrils lashing. Frame 3: Maximum aggression, body distorts. Frame 4: Snap-back to rest coordinates. Pure #000000 canvas, 1024x640px, sharp pixel art.",
+
+    "enemy_worm_spritesheet": "A cybernetic digital worm enemy in 2.5D isometric pixel art. A long segmented body composed of rotating hexagonal data rings, each segment glowing with amber-orange circuit patterns. The head segment features a single large red optic lens and mandible-like data prongs that open and close. The body undulates in a serpentine sine-wave motion. Metallic dark gray exoskeleton with glowing orange segmentation joints. Small sparks of electricity arc between segments when moving. GRID: 16 rows by 4 columns for full 16-directional rotation. 4-frame slither animation: Frame 1 contracted rest, Frame 2 extension forward, Frame 3 full stretch, Frame 4 snap-back contraction. Pure black canvas, 1024x640px, sharp pixel art.",
+
+    "enemy_devourer_spritesheet": "A massive digital devourer entity in 2.5D isometric pixel art. A hulking beast-like form made of corrupted data chunks and fragmented code, with a gaping central maw filled with rotating matrix-green teeth. Multiple smaller eyes scattered across its body surface, each blinking independently. Arms are thick data-cables ending in claw-like grappling hooks. The body texture is a chaotic mosaic of corrupted file icons, error messages, and fragmented hex values. Deep purple-black core with bright magenta corruption veins. GRID: 16 rows by 4 columns. 4-frame attack animation: Frame 1 idle hunch, Frame 2 maw opens wide, Frame 3 lunging strike forward, Frame 4 snap-back recovery. Pure black canvas, 1024x640px, sharp pixel art.",
+
+    "enemy_ai_overlord_spritesheet": "A boss-tier AI Overlord entity in 2.5D isometric pixel art. A towering humanoid-abstract form made of pure light and geometric constructs. The head is a crystalline polyhedron with a glowing central core that cycles through colors. Shoulders have massive curved antenna-array structures. The body is composed of floating geometric plates that constantly orbit and reconfigure. Arms are energy conduits ending in clusters of floating data-daggers. A massive halo of spinning ring-shaped data structures orbits behind the entity. White-gold primary light with deep blue energy cores. GRID: 16 rows by 4 columns. 4-frame animation with idle floating bob. Phase-shifting visual effect built into the sprite. Pure black canvas, 1024x640px, but use 128x128px cells (2048x1280px sheet) for boss scale.",
+
+    "enemy_firewall_spritesheet": "A defensive firewall entity in 2.5D isometric pixel art. A massive floating wall-like structure composed of interlocking hexagonal shield panels with glowing blue-white circuit patterns. The surface displays active packet-filtering visualizations as streams of data being accepted or rejected. Multiple rotating turret modules on corners project defensive energy beams. The center features a large glowing eye-like core that scans rhythmically. Shield panels occasionally shift and reconfigure. Dark blue and electric blue color scheme with white-hot energy lines. GRID: 16 rows by 4 columns. 4-frame active defense animation. Pure black canvas, 1024x640px, sharp pixel art.",
+
+    "enemy_honeypot_spritesheet": "A deceptive honeypot trap entity in 2.5D isometric pixel art. Disguised as an attractive data cache or treasure node, appearing as a glowing crystalline data shard floating above a pedestal of light. Beautiful swirling aurora-like energy patterns in warm gold and pink tones emanate from it. However, subtle visual tells reveal its true nature: faint red warning lines in the glow, slightly asymmetrical crystalline structure, and small malicious code fragments visible inside the core if examined closely. When triggered, the outer shell shatters revealing the trap mechanism. GRID: 16 rows by 4 columns. Frame 1-2: Innocent lure state (glowing, pulsing attractively). Frame 3: Triggered transformation. Frame 4: Trap sprung, malicious form revealed. Pure black canvas, 1024x640px, sharp pixel art.",
+
+    "enemy_router_node": "A network router node enemy in 2.5D isometric pixel art. A rectangular server-appliance shape with multiple glowing ethernet ports along the front panel, each port emitting a different colored light (green, amber, blue). The top surface has blinking LED arrays arranged in grid patterns. Cooling vents on sides emit heat-distortion effects. Antenna protrusions on the back. Dark gray metal casing with bright LED indicators. GRID: 16 rows by 4 columns for 4-frame idle-blink animation. Pure black canvas, 1024x640px, sharp pixel art.",
+
+    "enemy_server_node": "A rack-mounted server tower node in 2.5D isometric pixel art. A tall vertical server chassis with multiple drive bays, each with blinking activity LEDs. Cable management arms on sides with glowing data cables. Front panel LCD displaying scrolling system metrics. Fan grills on top with slight blur effect indicating airflow. Dark gray-black metal with blue-white status lights. GRID: 16 rows by 4 columns. 4-frame server idle animation with alternating drive activity lights. Pure black canvas, 1024x640px, sharp pixel art.",
+
+    "enemy_workstation_node": "A desktop workstation node in 2.5D isometric pixel art. A monitor with a curved screen displaying scrolling green code on a black terminal background. A sleek tower case beside it with power LED glowing blue. Keyboard and mouse visible at the base. Small desk plant or personal item hinting at the user. The monitor screen flickers with active terminal sessions. Dark tech aesthetic with accent lighting. GRID: 16 rows by 4 columns. 4-frame animation with screen flicker and typing effect illusion. Pure black canvas, 1024x640px, sharp pixel art.",
+
+    "enemy_database_node": "A database server node in 2.5D isometric pixel art. A high-density storage array with multiple stacked disk drive units, each showing a blue glow indicating activity. The front panel has rows of small circular indicators arranged in a grid. Thick data cable bundles emerge from both sides and snake away. A holographic data-stream visualization projects upward from the top surface showing stylized database tables and queries flowing. GRID: 16 rows by 4 columns. 4-frame animation with sequential drive access patterns. Pure black canvas, 1024x640px, sharp pixel art.",
+
+    "enemy_darknet_node": "A darknet market node in 2.5D isometric pixel art. An ominous shrouded server structure with an onion-router aesthetic. Multiple layers of encrypted data wrapping the core like a data-cocoon. Faint purple and dark-red illumination from within. Anonymized transaction data streams flow in and out as ghostly particles. The structure appears intentionally obscured, as if censored, with some parts pixelated or blurred. GRID: 16 rows by 4 columns. 4-frame pulsing encryption animation. Pure black canvas, 1024x640px, sharp pixel art.",
+
+    "enemy_iot_node": "An IoT device node in 2.5D isometric pixel art. A small smart-device form factor: a compact rounded box with a single glowing touchscreen interface, a camera lens, and a small antenna. Could be a smart speaker, security camera, or smart appliance. Innocent-looking but with a subtle malicious red glow behind the screen. White or light gray plastic casing (contrasting the dark tech theme). GRID: 16 rows by 4 columns. 4-frame idle animation with subtle camera pan-and-scan motion. Pure black canvas, 1024x640px, sharp pixel art.",
+
+    "enemy_mobile_node": "A mobile device node in 2.5D isometric pixel art. A smartphone or tablet form factor lying flat showing a screen with hacking tools interface. Dark mode UI with green-on-black terminal text. The device frame is sleek metallic with visible antenna bands. Screen shows active SSH sessions and network scanning output. Notification LEDs blinking. GRID: 16 rows by 4 columns. 4-frame animation with screen content changes. Pure black canvas, 1024x640px, sharp pixel art.",
+
+    "enemy_cloud_node": "A cloud server instance node in 2.5D isometric pixel art. An ethereal semi-transparent server form floating inside a stylized cloud shape made of glowing data particles. The server racks within are visible but ghostly, suggesting virtualization. Multiple floating storage volumes orbit the main instance. Soft blue-white light with gradient transparency. GRID: 16 rows by 4 columns. 4-frame floating animation with gentle bobbing. Pure black canvas, 1024x640px, sharp pixel art.",
+
+    "enemy_satellite_node": "A satellite uplink node in 2.5D isometric pixel art. A satellite dish with a large parabolic reflector pointing skyward, mounted on a secure base with control systems. The dish surface has a subtle hexagonal mesh pattern. A focused beam of data transmission is visible as a thin blue-white energy line shooting upward. Small warning lights on the base support structure. GRID: 16 rows by 4 columns. 4-frame tracking rotation animation as dish adjusts aim. Pure black canvas, 1024x640px, sharp pixel art."
+
+  },
+
+  "bosses": {
+
+    "boss_zone_overlord": "A colossal zone boss entity in 2.5D isometric pixel art. A massive humanoid-cybernetic construct towering over the battlefield, built from server rack segments and data cables woven into a giant warrior form. One arm ends in a massive data-scythe, the other in a cannon-like conduit array. The chest cavity reveals a glowing pulsating core of pure energy. The head is a massive monitor screen displaying a menacing static-filled face with glowing eyes. Shoulder-mounted defensive turrets and orbiting shield drones. The body is heavily armored with visible cooling vents emitting steam. GRID: 16 rows by 4 columns, 128x128px cells (2048x1280px). 4-frame boss idle animation with slow heavy breathing motion. Phase-change variant: when damaged, armor plates crack revealing molten energy beneath. Pure black canvas, sharp pixel art.",
+
+    "boss_corrupted_core": "A stationary boss entity in 2.5D isometric pixel art: a massive crystalline data core pulsating with unstable energy. The core is a multi-faceted geometric crystal cluster, each facet showing different corrupted data streams. Tentacles of pure code-energy extend from the base. Protective barrier rings orbit the core at varying speeds. The surface texture flickers between blue-white (stable) and red-black (enraged) states. Lightning arcs between crystal facets. GRID: 16 rows by 4 columns, 128x128px cells. 4-frame pulsing animation with orbiting ring motion. Pure black canvas, sharp pixel art."
+
+  },
+
+  "items": {
+
+    "item_knowledge_fragment": "A single item icon in 32x32 sharp pixel art: a glowing blue shard of crystalline data, shaped like a broken piece of a larger geometric shape. Small binary digits float around it. The shard has internal light that pulses gently. Pure black background.",
+
+    "item_zero_day_exploit_common": "Item icon 32x32 pixel art: a simple green document icon with a stylized bug symbol, representing a basic exploit. Common rarity gray border. Pure black background.",
+
+    "item_zero_day_exploit_uncommon": "Item icon 32x32 pixel art: a green document with a more detailed bug icon and a small shield cracking beside it. Uncommon green border. Pure black background.",
+
+    "item_zero_day_exploit_rare": "Item icon 32x32 pixel art: an intricate document icon with the bug symbol transforming into a serpent eating its tail, surrounded by small floating code fragments. Rare blue border glow. Pure black background.",
+
+    "item_zero_day_exploit_epic": "Item icon 32x32 pixel art: a glowing purple scroll-like document with ornate digital borders, the bug symbol replaced by a dragon-like entity made of pure code. Epic purple border with animated sparkle particles. Pure black background.",
+
+    "item_zero_day_exploit_legendary": "Item icon 32x32 pixel art: a legendary golden data document radiating beams of light, the exploit depicted as a phoenix made of binary code rising from the document. Legendary orange-gold border with intense glow effect. Pure black background.",
+
+    "item_crypt_key": "Item icon 32x32 pixel art: an ornate digital key made of glowing cyan light, the teeth formed from hexadecimal characters. A small lock icon with data-streams flowing into it sits beside the key. Pure black background.",
+
+    "item_access_token": "Item icon 32x32 pixel art: a glowing digital pass-card with a holographic fingerprint on the front and rotating QR-code like pattern. Green status indicator light on the corner. Sleek cyberpunk card design. Pure black background.",
+
+    "item_malware_payload": "Item icon 32x32 pixel art: a skull-and-crossbones made of binary code inside a circular biohazard-style symbol. Bright toxic green on dark background with small warning triangle accents. Aggressive dangerous aesthetic. Pure black background.",
+
+    "item_decoy_data": "Item icon 32x32 pixel art: a folder icon with a ghostly translucent duplicate behind it, suggesting fake/misdirection data. Subtle glitch distortion lines running through the folder. Pale blue with transparency effect. Pure black background.",
+
+    "item_firewall_patch": "Item icon 32x32 pixel art: a hexagonal shield patch with circuit board patterns, actively repairing a crack in the shield with glowing solder-like light. Blue-white defensive aesthetic. Pure black background.",
+
+    "inventory_slot_bg": "A single inventory slot background 64x64 pixel art: a dark metallic gray square panel with slightly recessed center, thin neon-blue border trim with small corner brackets, faint hexagonal grid pattern on the surface. Empty slot appearance. Pure black background."
+
+  },
+
+  "ui_icons": {
+
+    "ui_skill_deep_scan": "UI icon 32x32 pixel art: a stylized eye with scanning radar rings emanating outward, cyan and blue color scheme. The pupil is a crosshair target. Represents the Deep Scan skill. Sharp pixel art on pure black.",
+
+    "ui_skill_firewall": "UI icon 32x32 pixel art: a layered hexagonal shield with defensive energy arcs running across its surface. Multiple shield layers visible at different depths. Blue-white color scheme. Represents the Firewall defense skill. Sharp pixel art on pure black.",
+
+    "ui_skill_overclock": "UI icon 32x32 pixel art: a CPU chip with performance bars rising out of it, surrounded by speed lines and overheating red-orange glow. The chip has flame-like energy emanating from its pins. Represents the Overclock skill. Sharp pixel art on pure black.",
+
+    "ui_skill_stealth_net": "UI icon 32x32 pixel art: a figure silhouette fading into a geometric network grid, with phase-shift distortion lines. Dark purple and dark blue color scheme. The silhouette is semi-transparent. Represents the Stealth Net skill. Sharp pixel art on pure black.",
+
+    "ui_skill_data_mining": "UI icon 32x32 pixel art: a pickaxe or drill striking a glowing data crystal, with data fragments and spark particles flying outward. Green and gold color scheme. Represents the Data Mining skill. Sharp pixel art on pure black.",
+
+    "ui_skill_band_boost": "UI icon 32x32 pixel art: a signal strength indicator (WiFi-style arcs) with upward arrows showing bandwidth increasing. The arcs are filled with flowing data particles. Bright green color scheme. Represents the Band Boost skill. Sharp pixel art on pure black.",
+
+    "ui_skill_crypto_mine": "UI icon 32x32 pixel art: a bitcoin-stylized B symbol inside a circular data ring, with a mining rig GPU chip beneath it. Small floating coins and hash-rate indicators. Gold and orange color scheme. Represents the Crypto Mine skill. Sharp pixel art on pure black.",
+
+    "ui_action_scan": "UI icon 32x32 pixel art: a radar/sonar ping icon with concentric expanding rings and a central dot. Cyan color. Represents the SCAN action button. Sharp pixel art on pure black.",
+
+    "ui_action_attack": "UI icon 32x32 pixel art: a crosshair targeting reticle with a lightning bolt through the center, surrounded by impact sparks. Red color scheme. Represents the ATTACK action button. Sharp pixel art on pure black.",
+
+    "ui_action_defend": "UI icon 32x32 pixel art: a solid shield icon with defensive energy barrier lines across its face. Blue-white color scheme. Represents the DEFEND action button. Sharp pixel art on pure black.",
+
+    "ui_action_stealth": "UI icon 32x32 pixel art: a ghost-like silhouette figure with a phase-shift effect, partially disappearing into shadow. Dark purple color scheme. Represents the STEALTH action button. Sharp pixel art on pure black.",
+
+    "ui_action_heal": "UI icon 32x32 pixel art: a medical cross or plus sign made of glowing green data nodes, with healing energy particles rising from it. Green color scheme. Represents the HEAL action button. Sharp pixel art on pure black.",
+
+    "ui_action_inventory": "UI icon 32x32 pixel art: a backpack or grid-bag icon with item squares visible inside, made of wireframe digital lines. Amber-yellow color scheme. Represents the INV (inventory) action button. Sharp pixel art on pure black.",
+
+    "ui_notification_info": "UI icon 16x16 pixel art: a lowercase letter i inside a circular information bubble, blue-white glow. For info-type notifications. Sharp pixel art on pure black.",
+
+    "ui_notification_success": "UI icon 16x16 pixel art: a checkmark inside a circular confirmation badge, green glow. For success-type notifications. Sharp pixel art on pure black.",
+
+    "ui_notification_warning": "UI icon 16x16 pixel art: an exclamation mark inside a triangular warning sign, yellow-amber glow. For warning-type notifications. Sharp pixel art on pure black.",
+
+    "ui_notification_error": "UI icon 16x16 pixel art: an X mark inside a circular error badge, red glow. For error-type notifications. Sharp pixel art on pure black.",
+
+    "ui_achievement_combat": "UI icon 32x32 pixel art: two crossed swords made of energy, with impact sparks at the crossing point. Red-blue color scheme. Represents the COMBAT achievement category. Sharp pixel art on pure black.",
+
+    "ui_achievement_progression": "UI icon 32x32 pixel art: an upward staircase or level-up arrow made of glowing bars, each step brighter than the last. Green-blue color scheme. Represents the PROGRESSION achievement category. Sharp pixel art on pure black.",
+
+    "ui_achievement_economy": "UI icon 32x32 pixel art: a stack of coins with a rising graph line behind them. Gold-cyan color scheme. Represents the ECONOMY achievement category. Sharp pixel art on pure black.",
+
+    "ui_achievement_exploration": "UI icon 32x32 pixel art: a compass rose or radar map with expanding discovery rings, unexplored areas shown as dark voids. Teal color scheme. Represents the EXPLORATION achievement category. Sharp pixel art on pure black.",
+
+    "ui_achievement_social": "UI icon 32x32 pixel art: two connected node dots with a data-link line between them, representing connection and networking. Purple-pink color scheme. Represents the SOCIAL achievement category. Sharp pixel art on pure black.",
+
+    "ui_achievement_scripting": "UI icon 32x32 pixel art: a terminal window with lines of code, a cursor blinking at the end, and brackets surrounding it. Green-on-black color scheme. Represents the SCRIPTING achievement category. Sharp pixel art on pure black.",
+
+    "ui_achievement_world_event": "UI icon 32x32 pixel art: a globe made of wireframe data connections with a pulsing alert ring around it. Orange-red color scheme. Represents the WORLD_EVENT achievement category. Sharp pixel art on pure black.",
+
+    "ui_achievement_meta": "UI icon 32x32 pixel art: a recursive fractal pattern of achievement icons nested inside each other, with an infinity symbol in the center. Rainbow prism color scheme. Represents the META achievement category. Sharp pixel art on pure black.",
+
+    "ui_resource_cpu": "UI icon 16x16 pixel art: a microchip/CPU icon with glowing core and pin connections. Cyan-blue color. Represents CPU resource. Sharp pixel art on pure black.",
+
+    "ui_resource_ram": "UI icon 16x16 pixel art: a RAM stick module with contact pins and glowing data flow indicators. Purple color. Represents RAM resource. Sharp pixel art on pure black.",
+
+    "ui_resource_bandwidth": "UI icon 16x16 pixel art: a signal wave icon with bidirectional arrows showing data flow. Green color. Represents Bandwidth resource. Sharp pixel art on pure black.",
+
+    "ui_resource_credits": "UI icon 16x16 pixel art: a dollar/credit symbol inside a hexagonal coin, with a subtle circuit pattern around the edge. Gold color. Represents Credits currency. Sharp pixel art on pure black.",
+
+    "ui_resource_hp": "UI icon 16x16 pixel art: a heart-shaped icon made of glowing red data nodes connected by thin energy lines. Red color. Represents Health Points. Sharp pixel art on pure black.",
+
+    "ui_resource_xp": "UI icon 16x16 pixel art: a star-like burst icon with expanding points, representing experience gain. Gold-orange color. Represents Experience Points. Sharp pixel art on pure black.",
+
+    "ui_faction_syndicate": "UI icon 32x32 pixel art: a stylized skull with a top-hat and monocle made of neon green light, with dollar-sign pupils. The icon represents the Syndicate crime faction. Sharp pixel art on pure black.",
+
+    "ui_faction_corpnet": "UI icon 32x32 pixel art: a minimalist corporate logo shape, an abstract letterform made of sharp geometric angles and straight lines, blue-white corporate color scheme. Represents CorpNet. Sharp pixel art on pure black.",
+
+    "ui_faction_ghostnet": "UI icon 32x32 pixel art: a ghost-like mask with hollow eye sockets, made of dark purple shadow with faint teal outline. The edges dissipate into particles. Represents GhostNet. Sharp pixel art on pure black.",
+
+    "ui_faction_freeworld": "UI icon 32x32 pixel art: a broken chain link with one end transforming into a bird in flight, gold and white color scheme. Represents the FreeWorld faction. Sharp pixel art on pure black.",
+
+    "ui_faction_zeroday": "UI icon 32x32 pixel art: the number 0 with a hidden exploit needle piercing it, made of bright orange light. A stylized zero-day exploit symbol. Represents ZeroDay faction. Sharp pixel art on pure black.",
+
+    "ui_faction_law_enforcement": "UI icon 32x32 pixel art: a stylized law enforcement badge with a digital shield and crosshair pattern, blue and white color scheme with red accents. Represents Law Enforcement faction. Sharp pixel art on pure black.",
+
+    "ui_faction_neutral": "UI icon 32x32 pixel art: a balanced scale icon made of data lines, perfectly level, in neutral gray with white accents. Represents unaligned/Neutral faction. Sharp pixel art on pure black.",
+
+    "ui_world_map_router": "UI icon 24x24 pixel art: a small router icon with antenna waves, colored amber-orange for unvisited, green for visited, red for hostile. Sharp pixel art on pure black.",
+
+    "ui_world_map_server": "UI icon 24x24 pixel art: a server tower icon with blinking dots, colored amber or green based on state. Sharp pixel art on pure black.",
+
+    "ui_world_map_workstation": "UI icon 24x24 pixel art: a monitor screen icon with terminal code lines, colored amber or green. Sharp pixel art on pure black.",
+
+    "ui_world_map_database": "UI icon 24x24 pixel art: a database cylinder/stack icon with data flow lines, colored amber or green. Sharp pixel art on pure black.",
+
+    "ui_world_map_firewall": "UI icon 24x24 pixel art: a shield icon with lock symbol, colored red to indicate defense node. Sharp pixel art on pure black.",
+
+    "ui_world_map_honeypot": "UI icon 24x24 pixel art: a honey-drip icon that looks initially attractive (gold glow) but has a subtle skull warning in the center. Sharp pixel art on pure black.",
+
+    "ui_world_map_darknet": "UI icon 24x24 pixel art: an onion-layered node icon with concentric rings, dark purple color. Sharp pixel art on pure black.",
+
+    "ui_world_map_iot": "UI icon 24x24 pixel art: a small smart-device icon with wireless signal arcs, light blue color. Sharp pixel art on pure black.",
+
+    "ui_world_map_mobile": "UI icon 24x24 pixel art: a smartphone icon with battery and signal bars, cyan color. Sharp pixel art on pure black.",
+
+    "ui_world_map_cloud": "UI icon 24x24 pixel art: a cloud shape made of small data nodes connected by lines, white-blue color with transparency. Sharp pixel art on pure black.",
+
+    "ui_world_map_satellite": "UI icon 24x24 pixel art: a satellite dish icon with transmission beam lines pointing upward, white-gray color. Sharp pixel art on pure black.",
+
+    "ui_quickbar_1": "UI slot border 40x40 pixel art: a square action bar slot with thin neon-blue wireframe border, slightly transparent dark fill, small keybind number '1' in the top-left corner. For quick action bar. Sharp pixel art on pure black.",
+
+    "ui_quickbar_2": "UI slot border 40x40 pixel art: same as quickbar_1 with keybind number '2' in top-left corner. Sharp pixel art on pure black.",
+
+    "ui_quickbar_3": "UI slot border 40x40 pixel art: same with keybind number '3'. Sharp pixel art on pure black.",
+
+    "ui_quickbar_4": "UI slot border 40x40 pixel art: same with keybind number '4'. Sharp pixel art on pure black.",
+
+    "ui_quickbar_5": "UI slot border 40x40 pixel art: same with keybind number '5'. Sharp pixel art on pure black.",
+
+    "ui_quickbar_6": "UI slot border 40x40 pixel art: same with keybind number '6'. Sharp pixel art on pure black.",
+
+    "ui_quickbar_7": "UI slot border 40x40 pixel art: same with keybind number '7'. Sharp pixel art on pure black.",
+
+    "ui_quickbar_8": "UI slot border 40x40 pixel art: same with keybind number '8'. Sharp pixel art on pure black.",
+
+    "ui_quickbar_9": "UI slot border 40x40 pixel art: same with keybind number '9'. Sharp pixel art on pure black.",
+
+    "ui_quickbar_0": "UI slot border 40x40 pixel art: same with keybind number '0'. Sharp pixel art on pure black.",
+
+    "ui_panel_border_top": "UI panel decoration 512x16 pixel art: a horizontal title bar gradient with rounded outer corners at the top, dark metallic texture, thin neon-blue trim line along the bottom edge, subtle hexagonal grid pattern fill. For terminal-style UI panels. Sharp pixel art.",
+
+    "ui_panel_border_bottom": "UI panel decoration 512x16 pixel art: a horizontal footer bar matching top bar style, neon-blue trim along the top edge, slightly darker fill. Sharp pixel art.",
+
+    "ui_panel_border_left": "UI panel decoration 16x512 pixel art: a vertical side border with neon-blue trim line on the right edge, matching the horizontal bars. Sharp pixel art.",
+
+    "ui_panel_border_right": "UI panel decoration 16x512 pixel art: a vertical side border with neon-blue trim line on the left edge. Sharp pixel art.",
+
+    "ui_terminal_cursor_blink": "A terminal cursor indicator 8x16 pixel art: a solid neon-green rectangle that serves as a text cursor. Two-frame animation: full opacity frame 1, 50% opacity frame 2 for blink effect. Sharp pixel art on pure black.",
+
+    "ui_scrollbar_track": "A scrollbar track 12x64 pixel art: a dark metallic vertical track with subtle groove texture, slightly recessed appearance. Neon-blue glow at the edges. For terminal scrollbar. Sharp pixel art.",
+
+    "ui_scrollbar_handle": "A scrollbar handle/grip 12x16 pixel art: a brighter metallic button that fits in the scrollbar track, with three horizontal grip lines across the center. Neon-blue glow. Sharp pixel art.",
+
+    "ui_scrollbar_arrow_up": "A scrollbar up-arrow button 12x12 pixel art: a small triangular arrow pointing upward, made of neon-blue light, with a dark metallic button background. Sharp pixel art.",
+
+    "ui_scrollbar_arrow_down": "A scrollbar down-arrow button 12x12 pixel art: a small triangular arrow pointing downward, made of neon-blue light, with a dark metallic button background. Sharp pixel art.",
+
+    "ui_loading_spinner_frame": "A loading spinner animation frame 32x32 pixel art: a circular ring with a gap, similar to a progress indicator, in neon-blue. Variants create a spinning animation cycle. Frame 1: gap at 12 o'clock. Frame 2: gap at 3 o'clock. Frame 3: gap at 6 o'clock. Frame 4: gap at 9 o'clock. Sharp pixel art on pure black."
+
+  },
+
+  "environment": {
+
+    "bg_world_grid": "A full-screen 1920x1080 environment background in dark cyberpunk isometric grid style. A vast infinite grid floor extending to a digital horizon, rendered in dark gray and black with faint neon-blue grid lines creating perspective depth. The grid lines should have a subtle animated glow effect built into the static image via varying line brightness. Grid nodes at intersections show faint blinking data activity points. The horizon fades into a dark digital void with subtle matrix-style code rain particles. Pure dark ambient lighting with neon-blue as the primary accent color. No characters or objects, just the empty cyberspace grid environment. Pixel art style.",
+
+    "bg_biome_localhost": "A full-screen 1920x1080 biome background for Localhost: a clean, orderly cyberspace environment with well-organized data structures and bright green-on-black terminal aesthetics. Rows of neatly arranged server racks recede into the distance. Clean bright lighting with green and white color palette. Feels safe and controlled. Pixel art style.",
+
+    "bg_biome_perimeter": "A full-screen 1920x1080 biome background for Perimeter: the border zone between safe and dangerous networks. Visualized as a crumbling firewall wall with cracks and data breaches visible. The ground transitions from organized green grid on the left to chaotic red-orange grid on the right. Warning signs and defense turret silhouettes along the boundary. Tension between order and chaos in the lighting. Pixel art style.",
+
+    "bg_biome_darkweb": "A full-screen 1920x1080 biome background for DarkWeb: a deep cyberpunk underworld with dark purple and blood-red color scheme. Twisted data structures shaped like gothic architecture. Flickering neon signs in unknown scripts. Shadowy ambient lighting with pools of purple light. Hidden eyes watching from the darkness. Dangerous, mysterious atmosphere. Pixel art style.",
+
+    "bg_biome_firewall": "A full-screen 1920x1080 biome background for Firewall: a high-security cyberspace corridor. Massive glowing blue-white firewall barriers on both sides with active energy shielding. Scanning laser beams cross the path periodically. Warning holograms and security node towers. Sterile, bright, intensely secure aesthetic. Pixel art style.",
+
+    "bg_biome_datastreams": "A full-screen 1920x1080 biome background for DataStreams: a high-speed data transit environment. Blurred streaks of glowing data (cyan, magenta, yellow) rushing past at high speed on all sides. The floor is a transparent glass-like surface showing more data streams beneath. Motion-blurred particle effects suggesting extreme velocity. Pixel art style with speed emphasis.",
+
+    "bg_biome_corenetwork": "A full-screen 1920x1080 biome background for CoreNetwork: the central hub of cyberspace. Monumental data pillars supporting a vast digital sky-dome. Central glowing nexus of pure white-blue light. All data flows converge here. Geometric orbital rings and floating data platforms. Grand, awe-inspiring scale with golden-white and deep blue lighting. Pixel art style.",
+
+    "bg_biome_deepnet": "A full-screen 1920x1080 biome background for DeepNet: the deepest layer of cyberspace. Abyssal dark void with faint ancient data structures barely visible. Bioluminescent digital flora growing on forgotten server ruins. Rare glowing data crystals. Mysterious alien geometry suggesting unknown protocols. Deep blues and teals with pinpoints of golden light. Pixel art style.",
+
+    "bg_combat_arena": "A full-screen 1920x1080 combat arena background: a flat circular digital arena platform floating in cyberspace. Glowing grid floor with a central combat ring marker. Surrounding void with faint spectator data-presence indicators. The platform edge has holographic barrier posts. Neutral dark theme with dynamic lighting gradients. Pixel art style.",
+
+    "bg_login_screen": "A full-screen 1920x1080 login screen background: a dramatic digital landscape showing a silhouette of a lone hacker figure standing before a massive glowing data portal or gateway. The gateway has concentric hexagonal rings slowly rotating. Matrix code rain falling in the foreground. Deep blues, cyans, and dark purples. A large empty dark panel area in the center (where login form overlay goes). Epic cyberpunk atmosphere. Pixel art style without any text or UI elements.",
+
+    "bg_loading_splash": "A full-screen 1920x1080 loading splash background: the ZeroDayMMO logo area design. A dramatic digital storm with lightning-like data arcs across a dark sky. Three-dimensional wireframe geometric shapes (octahedrons, icosahedrons) floating in a dark void. Binary rain particles. Deep crimson and electric blue color contrast. Central area kept dark for logo text overlay. Pixel art style."
+
+  },
+
+  "effects": {
+
+    "fx_spell_impact_fire": "A spell impact effect spritesheet 64x64 cell, 4 rows x 4 columns: a fiery explosion with expanding ring of orange-red flames, central white-hot core, black smoke particles at the edges, and ember trails flying outward. Frame 1: initial spark. Frame 2: expanding fireball. Frame 3: maximum spread with debris. Frame 4: dissipating embers. Sharp pixel art on pure black. 256x256px total.",
+
+    "fx_spell_impact_electric": "A spell impact effect spritesheet 64x64 cell, 4 rows x 4 columns: an electric shockwave with branching lightning bolts radiating from center, blue-white bright arcs, small spark particles, and an ionized air glow. Frame 1: initial arc. Frame 2: branching lightning network. Frame 3: maximum discharge. Frame 4: residual static dissipation. Sharp pixel art on pure black. 256x256px total.",
+
+    "fx_spell_impact_ice": "A spell impact effect spritesheet 64x64 cell, 4 rows x 4 columns: a freezing burst with expanding ice crystal formation, pale blue-white flash, shattered ice shards flying outward, frost mist particles. Frame 1: freezing spark. Frame 2: crystal expansion. Frame 3: maximum frost spread. Frame 4: crystal fracture and mist settling. Sharp pixel art on pure black. 256x256px total.",
+
+    "fx_spell_impact_poison": "A spell impact effect spritesheet 64x64 cell, 4 rows x 4 columns: a toxic cloud burst with bubbling green corrosive splash, expanding green gas cloud, small skull-like formations in the smoke, and dripping venom particles. Frame 1: green spatter. Frame 2: gas cloud expansion. Frame 3: maximum spread with skull wisps. Frame 4: gas settling and fading. Sharp pixel art on pure black. 256x256px total.",
+
+    "fx_weapon_trail": "A weapon trail effect single strip 256x32 pixel art: a horizontal trailing energy ribbon with gradient from bright white at the leading edge to fading colored energy at the trailing edge. Variants: cyan for electric, orange for fire, blue for ice, green for poison. The trail has a slight wave/undulation pattern. Sharp pixel art on pure black.",
+
+    "fx_state_poisoned": "A status effect overlay loop 32x32, 4 frames: a toxic green aura overlay with bubbling poison bubbles rising and popping, green tinted haze, small skull indicators. Looping animation for poisoned status icon. Frame 1-4: continuous bubbling cycle. Sharp pixel art on pure black.",
+
+    "fx_state_buffed": "A status effect overlay loop 32x32, 4 frames: a bright golden-white radiant glow with upward-flowing sparkle particles, small star bursts at the corners, a subtle radiant aura effect. Looping animation for buffed status icon. Frame 1-4: continuous glow pulse cycle. Sharp pixel art on pure black.",
+
+    "fx_combat_hit": "A combat hit impact effect 48x48, 4 frames: a sharp white starburst with red impact ring expanding outward, small debris particles, a brief camera-shake indicator line. Frame 1: sudden bright flash. Frame 2: expanding impact ring. Frame 3: debris spray. Frame 4: fade out. Sharp pixel art on pure black.",
+
+    "fx_combat_heal": "A combat heal effect 48x48, 4 frames: a gentle green cross/plus symbol expanding outward with soft light particles, upward-rising sparkles, warm green glow. Frame 1: small green spark. Frame 2: expanding cross symbol. Frame 3: maximum glow with rising particles. Frame 4: gentle fade. Sharp pixel art on pure black.",
+
+    "fx_explosion_large": "A large explosion effect 128x128, 4 frames: a massive expanding fireball with orange-yellow-white gradient, concentric shockwave rings, debris chunks flying outward, thick black smoke clouds at the edges. Frame 1: ignition point. Frame 2: rapid expansion. Frame 3: maximum blast radius. Frame 4: smoke and debris settling. Sharp pixel art on pure black.",
+
+    "fx_digital_rain_drop": "A single digital rain drop character 8x16 pixel art: a glowing green matrix-style character (katakana or simplified kanji shape) in bright green on transparent background. Multiple variants with different characters for variety. The character should have a brief glow tail below it. Sharp pixel art on pure black.",
+
+    "fx_glitch_overlay_tile": "A screen glitch overlay tile 256x256 pixel art: a semi-transparent distortion pattern with horizontal displacement bands, color channel offsets (red/cyan separation), scanlines, and random pixel noise blocks. Designed to be tiled across the full screen. The pattern should be abstract and chaotic. Sharp pixel art.",
+
+    "fx_hack_sequence_ring": "A hacking sequence ring animation 64x64, 4 frames: an expanding circular scanning ring with digital tick marks around the circumference, rotating inner gear-like pattern, progress-indicating glow that fills as the sequence advances. Frame 1: initial ring. Frame 2: half-filled progress. Frame 3: three-quarters filled. Frame 4: complete with bright flash. Sharp pixel art on pure black."
+
+  },
+
+  "equipment_overlays": {
+
+    "eq_t1_jacket_netrunner": "A modular equipment overlay spritesheet for a Tier 1 Netrunner jacket. Sharp pixel art. GRID LAYOUT: 16 rows x 4 columns (1024x640px). A lightweight cyberpunk jacket with neon-blue trim along the zipper and collar, small LED shoulder lights, data cable loops on the sleeves. The jacket floats empty on a pure #000000 canvas with no body inside. ANCHOR_TORSO: Jacket body stays centered. ANCHOR_L_ARM / ANCHOR_R_ARM: Sleeve positions shift per rotational angle. Row 1 (0 degrees): Full frontal symmetry. Row 3 (45 degrees): Left sleeve foreshortened 50%, right sleeve at full profile. Row 9 (180 degrees): Back panel only with spine data-port. ANIMATION: 4-frame walk cycle. Column 1: Static rest hang. Columns 2-3: Fabric trailing opposite movement direction. Column 4: Snap-back to Column 1 rest coordinates. No background gradients. Strict palette limit.",
+
+    "eq_t2_armor_syndicate": "A modular equipment overlay spritesheet for Tier 2 Syndicate faction armor. Sharp pixel art. GRID: 16 rows x 4 columns (1024x640px). Heavy chest plate with neon-green Syndicate insignia, shoulder pauldrons with spike accents, armored collar that rises behind the head. The armor floats empty, no body visible. Pure #000000 canvas. ANCHOR_TORSO: Center-mass bounding box. ANCHOR_HEAD: Upper collar area. ANCHOR_L_ARM / ANCHOR_R_ARM: Pauldron positions. Row 1: Full frontal with symmetrical chest plate. Row 3: Left pauldron foreshortened, right pauldron at full profile showing side plate detail. Row 9: Back plate with spine reinforcement and faction symbol. 4-frame combat idle: subtle breathing bob. Column 4 snap-back to rest. No background gradients.",
+
+    "eq_t2_armor_corpnet": "A modular equipment overlay spritesheet for Tier 2 CorpNet faction armor. Sharp pixel art. GRID: 16 rows x 4 columns (1024x640px). Sleek corporate security armor with clean angular lines, blue-white LED strips, minimalistic design with polished metallic surfaces. Corporate logo on chest. Shoulder pieces are smooth and streamlined. No body visible, floats empty. Pure #000000 canvas. ANCHOR_TORSO: Center-mass. 16-directional rotational tracking. 4-frame idle animation with subtle LED pulse patterns. Column 4 snap-back to rest.",
+
+    "eq_t2_armor_ghostnet": "A modular equipment overlay spritesheet for Tier 2 GhostNet faction armor. Sharp pixel art. GRID: 16 rows x 4 columns (1024x640px). Dark matte armor with phase-shift camouflage effect, partially transparent at edges, dark purple and teal accent glow. Angular stealth-oriented design with minimal profile. No body visible. Pure #000000 canvas. ANCHOR_TORSO and limb anchors. 16-directional rotational matrix. 4-frame animation with subtle transparency oscillation. Column 4 snap-back.",
+
+    "eq_t3_coat_netrunner_run": "A modular equipment overlay spritesheet for a Tier 3 Netrunner trenchcoat running animation. Sharp pixel art. GRID: 16 rows x 4 columns (1024x640px). A long flowing trenchcoat with glowing neon-cyan fiber-optic cabling along the seams, structural carbon-fiber shoulder plates tracking ANCHOR_TORSO and ANCHOR_L_ARM/R_ARM. No body, no skin, no hair. Floats hollow in space. Pure #000000 canvas. ANGULAR TRANSFORMATION: Row 1 (0 degrees) full frontal coat symmetry. Row 3 (45 degrees) left sleeve foreshortened, right profile fully expanded. Row 9 (180 degrees) back panels and spine port connectors only. TIMELINE 4-frame sprint cycle: Column 1 static neutral. Columns 2-3 kinetic trailing physics arching backward from velocity. Column 4 snap-frame returning hems perfectly to Column 1 rest coordinates. Pure #000000 canvas, no gradients.",
+
+    "eq_helmet_netrunner": "A modular equipment overlay spritesheet for a Netrunner helmet. Sharp pixel art. GRID: 16 rows x 4 columns (1024x640px). A sleek full-face helmet with a dark visor showing subtle green HUD data reflections, angular cyberpunk design with ventilation ridges on the cheeks, a small antenna module on top, and neon-cyan trim lines. Floats empty, no head inside. Pure #000000 canvas. ANCHOR_HEAD: locked to upper-center vertex of each cell. 16-directional rotation: Row 1 full frontal visor visible. Row 3 three-quarter view with left side compressed. Row 9 rear view showing helmet base and cable ports. 4-frame idle: subtle visor scanline animation. Column 1 static, Column 4 snap-back.",
+
+    "eq_helmet_syndicate": "A modular equipment overlay spritesheet for a Syndicate faction helmet. Sharp pixel art. GRID: 16 rows x 4 columns (1024x640px). A menacing helmet with neon-green glowing visor shaped like a skull's eye sockets, crowned with short spikes, communication array on the side. Dark metallic finish. Floats empty. Pure #000000 canvas. ANCHOR_HEAD. 16-directional matrix. 4-frame idle. Column 4 snap-back.",
+
+    "eq_helmet_corpnet": "A modular equipment overlay spritesheet for a CorpNet faction helmet. Sharp pixel art. GRID: 16 rows x 4 columns (1024x640px). A clean corporate security helmet, smooth white-blue surface with a single blue horizontal visor strip, minimal design with corporate logo on the forehead. Floats empty. Pure #000000 canvas. ANCHOR_HEAD. 16-directional matrix. 4-frame animation. Column 4 snap-back.",
+
+    "eq_helmet_ghostnet": "A modular equipment overlay spritesheet for a GhostNet faction helmet. Sharp pixel art. GRID: 16 rows x 4 columns (1024x640px). A wraith-like helmet with no visible visor, just a smooth curved surface with two faint teal eye-slits. The surface has a subtle phased/camouflage texture, appearing to fade at the edges. Floats empty. Pure #000000 canvas. ANCHOR_HEAD. 16-directional. 4-frame phase animation. Column 4 snap-back.",
+
+    "eq_shield_barrier": "A modular equipment overlay spritesheet for an arm-mounted energy shield/barrier projector. Sharp pixel art. GRID: 16 rows x 4 columns (1024x640px). A rectangular forearm-mounted device with hexagonal energy emitter array, projecting a semi-transparent blue-white hexagonal energy shield in front. The shield has visible energy flow lines and a faint grid pattern. No arm inside, device floats with the shield projection. Pure #000000 canvas. ANCHOR_L_ARM: tracks left arm position. 16-directional rotation: shield orientation shifts to face outward from the arm at each angle. 4-frame animation: Column 1 shield inactive/retracted. Column 2 shield activating. Column 3 shield at full projection. Column 4 deactivation snap-back.",
+
+    "eq_backpack_data": "A modular equipment overlay spritesheet for a data backpack/utility rig. Sharp pixel art. GRID: 16 rows x 4 columns (1024x640px). A tactical backpack with multiple pouches, external data cable ports, a small antenna array, and glowing blue status lights. Worn high on the back. Floats empty, no body. Pure #000000 canvas. ANCHOR_TORSO (rear attachment). Row 1 and 2: Front/side visibility minimal (worn behind). Row 7-9 (135-180 degrees): Full rear visibility showing the main pack body with all details. 4-frame idle with subtle equipment sway.",
+    "eq_leg_armor_netrunner": "A modular equipment overlay spritesheet for Netrunner leg armor. Sharp pixel art. GRID: 16 rows x 4 columns (1024x640px). Leg armor plating from thighs to shins with neon-cyan trim, reinforced knee guards with data ports, boot armor with grounding spikes. Floats empty, no legs inside. Pure #000000 canvas. ANCHOR tracking for leg articulation. 16-directional rotation. 4-frame walk animation: Column 1 standing rest, Columns 2-3 stride positions, Column 4 snap-back to rest.",
+
+    "eq_cape_proxyghost": "A modular equipment overlay spritesheet for a ProxyGhost-style long lightweight cloak. Sharp pixel art. GRID: 16 rows x 4 columns (1024x640px). A floor-length semi-transparent cloaking mantle with noise-filter static texture effect, the edges appear to phase and distort. Dark gray with subtle teal undertones. No body visible. Pure #000000 canvas. ANCHOR_TORSO at shoulders. 16-directional rotation: Row 1 full front covering, Row 3 side with fabric pooling on one side, Row 9 full back with hood cowl detail. 4-frame walking/running animation with dramatic fabric flow. Column 4 snap-frame returns fabric to rest. No gradients."
+  },
+
+  "faction_emblems": {
+
+    "emblem_syndicate": "A faction emblem 128x128 pixel art: a stylized green skull wearing a top hat and monocle, with dollar-sign pupils and a cigar made of data streams. Behind the skull, crossed credit card and data shard form an X. The border is a thick neon-green ring with circuit patterns. Sharp aggressive design. Pure black background.",
+
+    "emblem_corpnet": "A faction emblem 128x128 pixel art: a clean corporate logo consisting of a stylized letter C formed by a crescent data arc, enclosed in a solid blue-white circle. Sharp geometric angles, minimal design, professional appearance. Small text-like geometric elements at the bottom suggest a corporate motto in code. Pure black background.",
+
+    "emblem_ghostnet": "A faction emblem 128x128 pixel art: a phantom mask with hollow eyes and a faint teal glow, surrounded by a ring of distorted data fragments that phase in and out of visibility. The edges of the emblem dissolve into pixel particles. Dark purple and teal color scheme. Mysterious, stealthy aesthetic. Pure black background.",
+
+    "emblem_freeworld": "A faction emblem 128x128 pixel art: a broken shackle chain forming a circle, with one broken end transforming into a stylized bird wing in upward flight. Gold and white color scheme with warm amber glow. The background ring has a sunrise-like gradient. Freedom and hope symbolism. Pure black background.",
+
+    "emblem_zeroday": "A faction emblem 128x128 pixel art: the number 0 formed by a serpent eating its own tail (ouroboros) made of binary code, with a needle-like exploit piercing through the center of the zero. Bright orange and yellow color scheme with intense glow. The border is a gear-toothed ring. Pure black background.",
+
+    "emblem_law_enforcement": "A faction emblem 128x128 pixel art: a six-pointed law enforcement badge with a digital shield in the center, crossed sword and gavel behind it. Blue and white primary colors with red accents. The border has a pulsing blue glow ring. Authoritative, lawful aesthetic. Pure black background.",
+
+    "emblem_neutral": "A faction emblem 128x128 pixel art: a balanced scale icon inside a perfect circle, the scale beam made of a straight data line, the pans as hexagon shapes perfectly level. Neutral gray and white color scheme with subtle silver metallic texture. Simple, balanced, non-aligned design. Pure black background."
+  },
+
+  "task_mission_icons": {
+
+    "task_penetration_test": "Mission type icon 32x32 pixel art: a shield with a crack in it and a probe/sensor tool crossing the crack, representing network penetration testing. Cyan and amber color scheme. Sharp pixel art on pure black.",
+
+    "task_data_theft": "Mission type icon 32x32 pixel art: a gloved hand reaching through a broken glass panel to grab a glowing data crystal. Red and gold color scheme. Sharp pixel art on pure black.",
+
+    "task_service_disruption": "Mission type icon 32x32 pixel art: a server tower with a red X over it, sparks flying from the top, disconnected cable. Orange and red color scheme. Sharp pixel art on pure black.",
+
+    "task_defense_setup": "Mission type icon 32x32 pixel art: a shield being constructed from hexagonal building blocks, with a gear icon in the background. Blue and white color scheme. Sharp pixel art on pure black.",
+
+    "task_cryptography": "Mission type icon 32x32 pixel art: a padlock with a keyhole made of binary digits, surrounded by encrypted data fragments. Purple and gold color scheme. Sharp pixel art on pure black.",
+
+    "task_social_engineering": "Mission type icon 32x32 pixel art: a phone receiver with a snake coiling around it, representing deceptive communication. Green and pink color scheme. Sharp pixel art on pure black.",
+
+    "task_botnet_operation": "Mission type icon 32x32 pixel art: multiple connected node dots forming a spider-web network pattern, with a central controller node glowing brighter. Dark red and gray color scheme. Sharp pixel art on pure black.",
+
+    "task_network_recon": "Mission type icon 32x32 pixel art: a magnifying glass over a network grid map, with highlighted discovered nodes. Cyan and green color scheme. Sharp pixel art on pure black.",
+
+    "task_forensics": "Mission type icon 32x32 pixel art: a fingerprint made of data lines being scanned by a laser beam, with a magnifying glass overlay. Blue and white color scheme. Sharp pixel art on pure black.",
+
+    "task_bug_bounty": "Mission type icon 32x32 pixel art: a stylized bug/insect made of code fragments inside a target crosshair, with a coin stack beside it representing the bounty reward. Gold and green color scheme. Sharp pixel art on pure black."
+
+  },
+
+  "world_event_icons": {
+
+    "world_event_network_outage": "World event icon 64x64 pixel art: a globe with dark patches where network connections have failed, disconnected cable ends, dark red warning glow. Sharp pixel art on pure black.",
+
+    "world_event_security_alert": "World event icon 64x64 pixel art: a blaring alarm siren icon with concentric alert rings, red flashing indicator, lock symbol with warning triangle. Sharp pixel art on pure black.",
+
+    "world_event_data_breach": "World event icon 64x64 pixel art: a broken vault door with data streams leaking out like liquid, fragmented file icons floating in the leak. Bright red and orange. Sharp pixel art on pure black.",
+
+    "world_event_malware_outbreak": "World event icon 64x64 pixel art: a biohazard symbol made of code, with multiple small skull icons spreading outward like a virus infection map. Toxic green on dark background. Sharp pixel art on pure black.",
+
+    "world_event_law_enforcement_crackdown": "World event icon 64x64 pixel art: a police badge with a raised hand in stop gesture, searchlight beams sweeping from above, handcuff icon at the bottom. Blue and red. Sharp pixel art on pure black.",
+
+    "world_event_black_market_sale": "World event icon 64x64 pixel art: a briefcase with a money symbol, surrounded by shady figure silhouettes, a loot box icon opening with golden glow. Dark purple and gold. Sharp pixel art on pure black.",
+
+    "world_event_technology_breakthrough": "World event icon 64x64 pixel art: a glowing lightbulb with circuit brain patterns visible inside, radiating breakthrough rings, upward arrows. Cyan and gold. Sharp pixel art on pure black.",
+
+    "world_event_international_conflict": "World event icon 64x64 pixel art: two crossed data swords with flags made of code behind them, collision sparks at the crossing point. Red and blue opposing colors. Sharp pixel art on pure black.",
+
+    "world_event_solar_flare": "World event icon 64x64 pixel art: a massive stylized solar eruption from a digital sun, with electromagnetic wave rings spreading outward, satellite icons being disrupted. Orange and white. Sharp pixel art on pure black.",
+
+    "world_event_quantum_supremacy": "World event icon 64x64 pixel art: a quantum computing chip with glowing qubit particles, superposition rings, and a crown icon above it symbolizing supremacy. Purple and cyan quantum color scheme. Sharp pixel art on pure black."
+  },
+
+  "career_emblems": {
+
+    "career_white_hat_rank_1": "Career rank icon 32x32 pixel art: a simple white hat/helmet silhouette with a small shield icon, representing White Hat rank 1. Clean white and blue. Sharp pixel art on pure black.",
+
+    "career_white_hat_rank_5": "Career rank icon 32x32 pixel art: an elaborate white hat with a large shield behind it, crossed gavel and scroll, stars indicating senior rank. Gold accents added to white and blue. Sharp pixel art on pure black.",
+
+    "career_white_hat_rank_10": "Career rank icon 32x32 pixel art: a grand white hat with wings on the sides, a radiant shield with law book behind it, multiple stars circling the icon. Gold, white, and royal blue. Maximum authority aesthetic. Sharp pixel art on pure black.",
+
+    "career_black_hat_rank_1": "Career rank icon 32x32 pixel art: a simple black beanie/skullcap silhouette with a small skull icon, representing Black Hat rank 1. Dark gray and red. Sharp pixel art on pure black.",
+
+    "career_black_hat_rank_5": "Career rank icon 32x32 pixel art: an elaborate black hat with a skull and crossbones behind it, crossed lockpicks, flame accents indicating notoriety. Red and black with gold trim. Sharp pixel art on pure black.",
+
+    "career_black_hat_rank_10": "Career rank icon 32x32 pixel art: a grand black crown-like hat with demonic horns, a large skull with glowing red eyes behind a flaming background, shattered law symbols at the base. Red, black, and dark gold. Maximum infamy aesthetic. Sharp pixel art on pure black."
+  },
+
+  "storyline_art": {
+
+    "story_chapter_1_welcome": "A narrative illustration 1920x1080 pixel art: a first-time hacker sitting at a terminal in a dark bedroom, the screen glow illuminating their face, the terminal displaying 'WELCOME TO THE MATRIX' in green text. The room is filled with hacker paraphernalia: empty energy drink cans, scattered cables, multiple monitors. The window shows a cyberpunk city skyline at night. High contrast lighting with green screen glow dominating.",
+
+    "story_chapter_2_network": "A narrative illustration 1920x1080 pixel art: a visualization of a beginner hacker exploring their first network, shown as a glowing subway map-style diagram of connected nodes stretching into the distance. A small avatar figure stands at the first node, looking at the branching paths ahead. Green guiding lines lead from node to node. Discovery and curiosity theme.",
+
+    "story_chapter_3_exploit": "A narrative illustration 1920x1080 pixel art: a close-up of hands typing rapidly on a holographic keyboard, lines of exploit code floating in the air around them, a target system's shield cracking in the background. The moment of breaching a system. Dramatic blue and orange color contrast. Sparks and data fragments flying.",
+
+    "story_chapter_4_darknet": "A narrative illustration 1920x1080 pixel art: a descent into the darknet visualized as a spiral staircase going down into purple-black depths, with shady marketplace stalls visible on each level. Hooded figures trade data shards at stalls. Neon signs in unknown scripts. The path is lit by flickering purple and red light. Dangerous, exciting atmosphere.",
+
+    "story_chapter_5_crypto": "A narrative illustration 1920x1080 pixel art: a hacker standing before a massive floating cryptographic equation, glowing rings of encryption being decoded layer by layer, the solution revealing a golden data core. Mathematical symbols and geometric shapes float in the air. Gold and cyan color scheme. Triumphant discovery theme.",
+
+    "story_chapter_6_advanced": "A narrative illustration 1920x1080 pixel art: a high-stakes hack in progress, the hacker shown as a silhouette before a massive corporate server fortress with multiple defense layers, their code attacks penetrating layer after layer. Blue-white defense beams trying to repel the intrusion. Action-packed with multiple visual battle elements.",
+
+    "story_chapter_7_elite": "A narrative illustration 1920x1080 pixel art: an elite hacker standing at the peak of a digital mountain made of data, looking out over the entire cyberspace landscape below. A crown of data-light on their head. The landscape shows all previous locations visible as distinct regions. Ascension and mastery theme with golden-white lighting and purple shadows."
+  }
+}
