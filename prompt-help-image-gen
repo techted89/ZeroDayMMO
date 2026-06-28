@@ -1,0 +1,58 @@
+# Character Animation System: Markdown Specification
+
+### Core Concept
+This document defines a modular, text-based architecture for generating character sprite assets. By decoupling character aesthetics from animation movement patterns, we ensure consistent high-fidelity outputs across the 16-directional walking grid.
+
+### Character Profiles (Module: Character_Name)
+Character profiles focus exclusively on physical attributes, clothing, and materials.
+
+**Example Profile:**
+- **Archetype:** Cyber-Runner
+- **Base:** Lean, agile human silhouette
+- **Attire:** High-collar tactical trench coat, synth-leather texture, matte black/neon teal trim
+- **Features:** Glowing ocular implant (right eye), braided ponytail, utility belt with modular pouches
+- **Style:** Clean, 2D vector-art aesthetic, flat shading, high-contrast highlights
+
+### Animation Grid Templates (Module: Templates)
+
+Templates define the geometric path and pose for the animation sequence. Use the directional mappings below to ensure frame consistency.
+
+**16-Directional Mapping (Mirroring Protocol):**
+- **North/South:** Original generated frames
+- **East/West:** Vertical mirroring of corresponding West/East frames
+- **Diagonal (NE, SE, NW, SW):** Interpolated frames based on axis movement
+
+**Template Schema:**
+- **Action:** [Idle | Walking | Running | Interaction | Combat]  ### Frame Transition Protocol
+*   **Snap Frames:** Implement transitional keyframes between distinct action states (e.g., transitioning from a Running sequence to an Idle pose).
+*   **Motion Smoothing:** Utilize these snap frames to interpolate movement, ensuring the character returns to a neutral or "rest" position before initiating a new action sequence.
+*   **Buffer Logic:** Each action cycle should conclude with a return-to-base frame to prevent jitter during animation blending.
+- **Orientation:** [N, S, E, W, NE, NW, SE, SW, NNE, NNW, SSE, SSW, ENE, ESE, WNW, WSW]
+- **Frame Sequence:** 01-08 (Loop)
+- **Pose Description:** [Template_Body_Action] + [Character_Profile_Details]
+
+**Implementation Notes:**
+*   **Axis Alignment:** Ensure all 'N' and 'S' movements strictly adhere to the vertical center-line of the sprite canvas.
+*   **Mirroring Logic:** When generating 'West' directions from 'East' source assets, ensure non-symmetrical elements (like specific equipment or hardware) are manually adjusted or flagged as "symmetrical-only" to avoid illogical asset placement.
+*   **Interpolation Strategy:** For diagonal vectors, maintain a 30-degree offset from cardinal frames to simulate depth and avoid "flat-sliding" in the animation engine.
+
+**Directional Indexing:**
+*   **Primary Cardinals:** N (0°), E (90°), S (180°), W (270°)
+*   **Inter-Cardinals:** NE, SE, SW, NW (45° offsets)
+*   **Tertiary Directions:** NNE, ENE, ESE, SSE, SSW, WSW, WNW, NNW (22.5° offsets)
+
+**Template Schema:**
+- **Action:** Walking
+- **Orientation:** [Direction_ID]
+- **Frame Sequence:** 01-08 (Loop)
+- **Pose Description:** [Template_Body_Action] + [Character_Profile_Details]
+
+### Workflow Implementation
+1. **Define Profile:** Create the character attributes in a markdown file.
+2. **Apply Template:** Select the movement sequence (e.g., "Walking_16_Directional").
+3. **Execute:** Inject profile variables into the template placeholders to generate the final prompt string for the image model.
+
+### Guidelines for Fidelity
+- **Consistency:** Maintain fixed character height across all 16 directions.
+- **Mirroring:** Use directional flipping to maintain consistent limb placement for East/West orientations.
+- **Normalization:** Ensure that lighting and color palette definitions are strictly locked in the profile module to prevent variation between animation frames.
